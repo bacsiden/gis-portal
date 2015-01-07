@@ -2670,6 +2670,54 @@ namespace NationalIT
         private Nullable<global::System.Int32> _UserID;
         partial void OnUserIDChanging(Nullable<global::System.Int32> value);
         partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ImageUrl
+        {
+            get
+            {
+                return _ImageUrl;
+            }
+            set
+            {
+                OnImageUrlChanging(value);
+                ReportPropertyChanging("ImageUrl");
+                _ImageUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ImageUrl");
+                OnImageUrlChanged();
+            }
+        }
+        private global::System.String _ImageUrl;
+        partial void OnImageUrlChanging(global::System.String value);
+        partial void OnImageUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Summary
+        {
+            get
+            {
+                return _Summary;
+            }
+            set
+            {
+                OnSummaryChanging(value);
+                ReportPropertyChanging("Summary");
+                _Summary = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Summary");
+                OnSummaryChanged();
+            }
+        }
+        private global::System.String _Summary;
+        partial void OnSummaryChanging(global::System.String value);
+        partial void OnSummaryChanged();
 
         #endregion
 

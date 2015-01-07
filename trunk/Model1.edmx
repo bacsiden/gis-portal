@@ -215,6 +215,8 @@
           <Property Name="ViewCount" Type="int" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="UserID" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <Association Name="FK_FunctionInRole_Function">
           <End Role="mFunction" Type="DB_9B22F2_nationalitModel.Store.mFunction" Multiplicity="1">
@@ -498,6 +500,8 @@
           <Property Type="Int32" Name="ViewCount" Nullable="false" />
           <Property Type="Boolean" Name="Deleted" Nullable="false" />
           <Property Type="Int32" Name="UserID" />
+          <Property Type="String" Name="ImageUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Summary" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="mFunctionInRole">
           <End Type="DB_9B22F2_nationalitModel.mFunction" Role="mFunction" Multiplicity="*" />
@@ -648,6 +652,8 @@
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Post">
               <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />

@@ -11,7 +11,7 @@ namespace NationalIT.Controllers
 
         public ActionResult Index()
         {
-            return View(DB.Entities.HtmlPage.ToList());
+            return View(DB.Entities.HtmlPage.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
         }
         [Authorize]
         public ActionResult NewOrEdit(int? id = 0)

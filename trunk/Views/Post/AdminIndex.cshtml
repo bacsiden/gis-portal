@@ -2,7 +2,8 @@
 @model PagedList<NationalIT.Post>
 <div class="row-fluid">
     <div class="span12">
-        <h3>Bài đăng bất động sản</h3>
+        <h3>Bài viết</h3>
+        @Html.ActionLink("Thêm mới", "AdminEdit", null, new { @class = "btn btn-info addNewItem" })
         <div class="row-fluid">
             <div class="span12">
                 <div class="row-fluid">
@@ -35,7 +36,7 @@
             </div>
         </div>
         <div id="wrap-AjaxPaging">
-            @Html.Partial("_AdminIndexPartial", Model)
+            @Html.Partial("_AdminIndex", Model)
         </div>
     </div>
 </div>

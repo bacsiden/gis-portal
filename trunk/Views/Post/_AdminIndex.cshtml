@@ -59,6 +59,7 @@
                         {<span class='validation-summary-errors'>Chờ đăng</span>}</a>
                 </td>
                 <td>
+                    @Html.ActionLink("Sửa", "AdminEdit", new { id = item.ID }) | 
                     @Html.ActionLink("Xóa", "SetDeleted", new { id = item.ID }, new { @class = "confirmDelete" })
                 </td>
             </tr>
