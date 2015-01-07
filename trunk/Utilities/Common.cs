@@ -10,8 +10,19 @@ using System.Text;
 
 namespace NationalIT
 {
-    public class CommonFunction
+    public class Common
     {
+        public static List<mLanguage> GetListLanguage()
+        {
+
+            if (HttpContext.Current.Cache[Constant.CACHE_CURRENT_LANGUAGE] == null)
+            {
+                List<mLanguage> lst = DB.Entities.mLanguage.ToList();
+                HttpContext.Current.Cache[Constant.CACHE_CURRENT_LANGUAGE] = lst;
+                return lst;
+            }
+            return (List<mLanguage>)HttpContext.Current.Cache[Constant.CACHE_CURRENT_LANGUAGE];
+        }
         public static string getYesNO(bool value)
         {
             if (value)

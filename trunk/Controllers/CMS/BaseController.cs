@@ -16,6 +16,25 @@ namespace NationalIT
 {
     public class BaseController : Controller
     {
+        public mLanguage CurrentLanguage
+        {
+            get
+            {
+                var culture = Url.RequestContext.RouteData.Values["site_language"];
+
+                mLanguage lang = null;
+
+                if (culture == null)
+                {
+                    lang = Common.GetListLanguage().FirstOrDefault();
+                }
+                else
+                {
+                    lang = Common.GetListLanguage().FirstOrDefault(m => m.Code == culture.ToString());
+                }
+                return lang;
+            }
+        }
         //protected override ViewResult View(IView view, object model)
         //{
         //    ViewBag.LanguageCode = CurrentLanguageCode;

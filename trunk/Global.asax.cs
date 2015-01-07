@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Globalization;
+using System.Threading;
 
 namespace NationalIT
 {
@@ -22,9 +24,16 @@ namespace NationalIT
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            "Site Language1", // Route name
+            "{site_language}/{controller}/{action}/{id}", // URL with parameters
+            new { controller = "Post", action = "AdminIndex", site_language = "vi", id = UrlParameter.Optional }, // Parameter defaults
+            new { site_language = "vi|en|zh" }
+            );
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
         }
@@ -36,5 +45,63 @@ namespace NationalIT
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
+        public const string DEFAULT_LANGUAGE_CODE = "vi";
+
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            if (HttpContext.Current.Session != null)
+            {
+                string languageCode = DEFAULT_LANGUAGE_CODE;
+                var languageRoute = Request.RequestContext.RouteData.Values["site_language"];
+                if (languageRoute != null)
+                    languageCode = languageRoute.ToString();
+
+                //Kiểm tra nếu URL có sự thay đổi về host và language thì cập nhật Session
+                //if ((Session[Constant.SESSION_CURRENT_LANGUAGE_CODE] == null ||
+                //    !string.Equals(Session[Constant.SESSION_CURRENT_LANGUAGE_CODE].ToString(),
+                //    languageCode, StringComparison.OrdinalIgnoreCase)))
+                {
+                    CultureInfo culture = CultureInfo.CreateSpecificCulture(languageCode);
+                    Thread.CurrentThread.CurrentCulture = culture;
+                    Thread.CurrentThread.CurrentUICulture = culture;
+                    Session[Constant.SESSION_CURRENT_LANGUAGE_CODE] = languageCode;
+
+                }
+            }
+
+        }
+        protected void Session_Start()
+        {
+            Session[Constant.SESSION_CURRENT_LANGUAGE_CODE] = null;
+        }
+    }
+    public class NinjectControllerFactory : DefaultControllerFactory
+    {
+        private string siteLanguage;
+        public NinjectControllerFactory(string siteLanguage)
+            : base()
+        {
+            this.siteLanguage = siteLanguage;
+        }
+
+        protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, Type controllerType)
+        {
+            var xx = requestContext.RouteData.Values["site_language"];
+            if (xx != null)
+                siteLanguage = xx.ToString();
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(siteLanguage);
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+            try
+            {
+                return base.GetControllerInstance(requestContext, controllerType);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

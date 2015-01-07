@@ -15,6 +15,7 @@
           <EntitySet Name="mFunction" EntityType="DB_9B22F2_nationalitModel.Store.mFunction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mFunctionInRole" EntityType="DB_9B22F2_nationalitModel.Store.mFunctionInRole" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mGroup" EntityType="DB_9B22F2_nationalitModel.Store.mGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mLanguage" EntityType="DB_9B22F2_nationalitModel.Store.mLanguage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mMenu" EntityType="DB_9B22F2_nationalitModel.Store.mMenu" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mMenuInFunction" EntityType="DB_9B22F2_nationalitModel.Store.mMenuInFunction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MoneyFilter" EntityType="DB_9B22F2_nationalitModel.Store.MoneyFilter" store:Type="Tables" Schema="dbo" />
@@ -145,6 +146,15 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mLanguage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="mMenu">
           <Key>
@@ -456,6 +466,7 @@
             <End Role="District" EntitySet="District" />
             <End Role="Ward" EntitySet="Ward" />
           </AssociationSet>
+          <EntitySet Name="mLanguage" EntityType="DB_9B22F2_nationalitModel.mLanguage" />
         </EntityContainer>
         <EntityType Name="LoaiBDS">
           <Key>
@@ -675,6 +686,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="mLanguage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Logo" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -880,6 +900,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="mLanguage">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mLanguage">
+              <MappingFragment StoreEntitySet="mLanguage">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -955,6 +985,7 @@
           <ConnectorPoint PointX="11.125" PointY="9.7689925130208337" />
           <ConnectorPoint PointX="12.625" PointY="9.7689925130208337" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mLanguage" Width="1.5" PointX="5.375" PointY="4.75" Height="1.5923063151041674" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -316,6 +316,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Province> _Province;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<mLanguage> mLanguage
+        {
+            get
+            {
+                if ((_mLanguage == null))
+                {
+                    _mLanguage = base.CreateObjectSet<mLanguage>("mLanguage");
+                }
+                return _mLanguage;
+            }
+        }
+        private ObjectSet<mLanguage> _mLanguage;
 
         #endregion
 
@@ -439,6 +455,14 @@ namespace NationalIT
         public void AddToProvince(Province province)
         {
             base.AddObject("Province", province);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the mLanguage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTomLanguage(mLanguage mLanguage)
+        {
+            base.AddObject("mLanguage", mLanguage);
         }
 
         #endregion
@@ -1609,6 +1633,139 @@ namespace NationalIT
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mLanguage")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class mLanguage : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new mLanguage object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="title">Initial value of the Title property.</param>
+        /// <param name="code">Initial value of the Code property.</param>
+        public static mLanguage CreatemLanguage(global::System.Int32 id, global::System.String title, global::System.String code)
+        {
+            mLanguage mLanguage = new mLanguage();
+            mLanguage.ID = id;
+            mLanguage.Title = title;
+            mLanguage.Code = code;
+            return mLanguage;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Code
+        {
+            get
+            {
+                return _Code;
+            }
+            set
+            {
+                OnCodeChanging(value);
+                ReportPropertyChanging("Code");
+                _Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Code");
+                OnCodeChanged();
+            }
+        }
+        private global::System.String _Code;
+        partial void OnCodeChanging(global::System.String value);
+        partial void OnCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Logo
+        {
+            get
+            {
+                return _Logo;
+            }
+            set
+            {
+                OnLogoChanging(value);
+                ReportPropertyChanging("Logo");
+                _Logo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Logo");
+                OnLogoChanged();
+            }
+        }
+        private global::System.String _Logo;
+        partial void OnLogoChanging(global::System.String value);
+        partial void OnLogoChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

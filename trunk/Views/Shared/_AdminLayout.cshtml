@@ -55,75 +55,31 @@
     <div id="navbar" class="navbar">
         <div class="navbar-inner">
             <div class="container-fluid Fluild-Edit">
-                <!-- BEGIN Brand -->
-                <a href="#" class="brand topLogo"><big>BẤT ĐỘNG SẢN THÁI NGUYÊN</big></a>
-                <!-- END Brand -->
-                <!-- BEGIN Responsive Sidebar Collapse -->
+                <a href="#" class="brand topLogo"><big>GIS PORTAL</big></a>
                 <a href="#" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse" style="float:left;">
                     <i class="icon-reorder"></i></a>
-                <!-- END Responsive Sidebar Collapse -->
-                <!-- BEGIN Navbar Buttons -->
                 <ul class="nav flaty-nav pull-right OptionLogin" id="OptionLogin">
-                    <!-- BEGIN Button User -->
                     @Html.Partial("AccountTask")
-                    <!-- END Button User -->
                 </ul>
-                <!-- END Navbar Buttons -->
             </div>
-            <!--/.container-fluid-->
         </div>
-        <!--/.navbar-inner-->
     </div>
-    <!-- END Navbar -->
-    <!-- BEGIN Container -->
     <div class="container-fluid" id="main-container">
-        <!-- BEGIN Sidebar -->
         <div id="sidebar" class="nav-collapse">
-            <!-- BEGIN Navlist -->
             <ul class="nav nav-list">
-                <!-- BEGIN Search Form -->
-                <li>
-                    <form target="#" method="GET" class="search-form">
-                    <span class="search-pan">@*<button type="submit">
-                            <i class="icon-search"></i>
-                        </button>
-                        <input type="text" name="search" placeholder="Search ..." autocomplete="off" />*@
-                    </span>
-                    </form>
-                </li>
-                <!-- END Search Form -->
                 @Html.Raw(ViewBag.Menu)
-                @*@Html.Partial("_ListMenu")*@
             </ul>
-            <!-- END Navlist -->
-            <!-- BEGIN Sidebar Collapse Button -->
             <div id="sidebar-collapse" class="visible-desktop">
                 <i class="icon-double-angle-left"></i>
             </div>
-            <!-- END Sidebar Collapse Button -->
         </div>
-        <!-- END Sidebar -->
-        <!-- BEGIN Content -->
         <div id="main-content">
-            <!-- BEGIN Breadcrumb -->
-            @*<div id="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li><i class="icon-home"></i><a href="./">Home</a> <span class="divider"><i class="icon-angle-right">
-                    </i></span></li>
-                    <li class="active">Index</li>
-                </ul>
-            </div>*@
-            <!-- END Breadcrumb -->
             @RenderBody()
             <div id="ModalGeneral" class="modal hide fade">
             </div>
             <a id="btn-scrollup" class="btn btn-circle btn-large" href="#"><i class="icon-chevron-up">
             </i></a>
         </div>
-        <!-- END Content -->
     </div>
-    <!-- END Container -->
-    <!--basic scripts-->
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
 </body>
 </html>
