@@ -253,6 +253,20 @@
     <Content Include="buzz\rs-plugin\css\settings.css" />
     <Content Include="buzz\rs-plugin\js\jquery.themepunch.plugins.min.js" />
     <Content Include="buzz\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="ContentFront\css\bootstrap.min.css" />
+    <Content Include="ContentFront\css\dashboard.css" />
+    <Content Include="ContentFront\css\Site.css" />
+    <Content Include="ContentFront\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ContentFront\img\banner-career.jpg" />
+    <Content Include="ContentFront\img\banner-top.jpg" />
+    <Content Include="ContentFront\img\Banner_Satellite1.jpg" />
+    <Content Include="ContentFront\img\IridiumSite_v2_AboutBanners_IndustryLeadership.jpg" />
+    <Content Include="ContentFront\img\satellite-banner200.jpg" />
+    <Content Include="ContentFront\img\Space.jpg" />
+    <Content Include="ContentFront\img\vega-space-banner.jpg" />
+    <Content Include="ContentFront\js\bootstrap.min.js" />
+    <Content Include="ContentFront\js\jquery-1.10.2.min.js" />
+    <Content Include="ContentFront\js\Site.js" />
     <Content Include="ContentFront\lib\fileinput\FileInput.css" />
     <Content Include="ContentFront\lib\fileinput\fileInput.js" />
     <Content Include="Content\assets\bootstrap-colorpicker\css\colorpicker.css" />
@@ -695,6 +709,9 @@
     <None Include="buzz\front-end-ops\js\%40C=N%3bO=D" />
     <None Include="buzz\front-end-ops\js\%40C=S%3bO=A" />
     <None Include="buzz\front-end-ops\js\%40C=S%3bO=D" />
+    <None Include="ContentFront\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="ContentFront\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="ContentFront\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\assets\gritter\css\jquery.gritter.css" />
     <Content Include="Content\assets\gritter\images\ie-spacer.gif" />
@@ -824,6 +841,7 @@
     <Content Include="Views\Language\AdminEdit.cshtml" />
     <Content Include="Views\Language\AdminIndex.cshtml" />
     <Content Include="Views\Post\AdminEdit.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />

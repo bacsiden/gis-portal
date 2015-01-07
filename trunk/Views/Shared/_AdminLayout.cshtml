@@ -1,5 +1,6 @@
 ﻿@{
-    var lang = HttpContext.Current.Request.RequestContext.RouteData.Values["site_language"].ToString();
+    var lang1 = HttpContext.Current.Request.RequestContext.RouteData.Values["site_language"];
+    var lang = lang1 == null ? "vi" : lang1.ToString();
     ViewBag.Menu = NationalIT.Controllers.AccountController.BuildMenu(lang);
     var ctrler = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
 }
@@ -33,7 +34,7 @@
     <script src="/Content/assets/chosen-bootstrap/chosen.jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/Content/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="/Content/js/flaty.js"></script>
-    <script src="/Content/js/myJquery.js" type="text/javascript"></script>    
+    <script src="/Content/js/myJquery.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".nav-list li a.menu-item-a").each(function () {
@@ -56,9 +57,9 @@
     <div id="navbar" class="navbar">
         <div class="navbar-inner">
             <div class="container-fluid Fluild-Edit">
-                <a href="#" class="brand topLogo"><big>GIS PORTAL</big></a>
-                <a href="#" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse" style="float:left;">
-                    <i class="icon-reorder"></i></a>
+                <a href="#" class="brand topLogo"><big>GIS PORTAL</big></a> <a href="#" class="btn-navbar collapsed"
+                    data-toggle="collapse" data-target=".nav-collapse" style="float: left;"><i class="icon-reorder">
+                    </i></a>
                 <ul class="nav flaty-nav pull-right OptionLogin" id="OptionLogin">
                     @Html.Partial("AccountTask")
                 </ul>
