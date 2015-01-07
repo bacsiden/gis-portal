@@ -1,0 +1,42 @@
+﻿@model NationalIT.Post
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đăng tin bất động sản";
+}
+<div class="header-box">
+    <h3 class="title-h3">
+        @Request.QueryString["h3Title"]</h3>
+    <span class="box-border"></span>
+</div>
+<div class="span12 details-li">
+    <h2>
+        <span>@Model.Title</span></h2>
+    @if (Model.Money != null)
+    {
+        <li><span>Giá: </span><strong>@string.Format("{0:N0}", Model.Money)</strong> Triệu</li>
+    }
+    @if (Model.LoaiBDSID != null)
+    {
+        <li><span>Loại: </span><strong>@NationalIT.DB.Entities.LoaiBDS.FirstOrDefault(m => m.ID == Model.LoaiBDSID).Title</strong>
+        </li>
+    }
+    <li><span>Liên hệ:</span> <strong>@Model.ContactName</strong> </li>
+    <li><span>SĐT: </span><strong>@Model.ContactPhone</strong> </li>
+    @if (Model.ContactEmail != null)
+    {
+        <li><span>Email: </span><strong>@Model.ContactEmail </strong></li>
+    }
+    <br />
+    <p>
+        @Model.Content
+    </p>
+</div>
+@foreach (var item in Model.ImagePost)
+{
+    <div class="span12 b-mar">
+        <img alt="" src="@item.Url" class="themeapt_image themeapt_animate_when_almost_visible left-to-right themeapt_start_animation"
+                style="visibility: visible; opacity: 1;">
+        <p class="img-title">@item.Title</p>
+    </div>
+}
+@Html.Partial("_ListPostDetails", (NationalIT.Models.ListPost)ViewBag.relatePost)

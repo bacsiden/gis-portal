@@ -1,0 +1,7 @@
+﻿@model string
+@*@if ((bool)ViewBag.ShowButtonNewOrEdit)*@
+@if (true)
+    {
+    <input type="submit" value="Lưu lại" class="btn btn-info" />
+    }
+@Html.ActionLink("Hủy", Model + "Index", null, new { @class = "btn" })
