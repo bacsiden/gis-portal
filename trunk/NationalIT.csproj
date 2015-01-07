@@ -737,6 +737,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="TextFile1.txt" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\SystemConfig.cshtml" />
