@@ -26,7 +26,7 @@ namespace NationalIT
             routes.MapRoute(
             "Site Language1", // Route name
             "{site_language}/{controller}/{action}/{id}", // URL with parameters
-            new { controller = "Post", action = "AdminIndex", site_language = "vi", id = UrlParameter.Optional }, // Parameter defaults
+            new { controller = "Home", action = "Index", site_language = "vi", id = UrlParameter.Optional }, // Parameter defaults
             new { site_language = "vi|en|zh" }
             );
 

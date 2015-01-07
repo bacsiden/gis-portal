@@ -16,7 +16,9 @@ namespace NationalIT.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var db = DB.Entities;
+
+            return View(db.Cate.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
         }
         [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
