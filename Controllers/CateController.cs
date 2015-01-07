@@ -11,7 +11,7 @@ namespace NationalIT.Controllers
         [Authorize]
         public ActionResult AdminIndex()
         {
-            return View(DB.Entities.Where(m => m.LanguageID == CurrentLanguage.ID).Cate.ToList());
+            return View(DB.Entities.Cate.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
         }
         [Authorize]
         public ActionResult AdminEdit(int? id = 0)
