@@ -1,14 +1,18 @@
 ﻿@if (Request.IsAuthenticated)
 {<li class="user-profile"><a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
-        <img class="nav-user-photo" src="/Content/img/avatardefault.jpg" alt="Penny's Photo" />
-        <span class="hidden-phone" id="user_info"><span>@User.Identity.Name</span></span>
-        <i class="icon-caret-down"></i>
-        <!-- BEGIN User Dropdown -->
-        <ul class="dropdown-menu dropdown-navbar" id="user_menu">
-            <li><a href="#ModalGeneral" role="button"  data-toggle="modal" class="ChangePassWord"><i class="icon-cog"></i>Đổi mật khẩu</a>         
+    <img class="nav-user-photo" src="/Content/img/avatardefault.jpg" alt="Penny's Photo" />
+    <span class="hidden-phone" id="user_info"><span>@User.Identity.Name</span></span>
+    <i class="icon-caret-down"></i>
+    <!-- BEGIN User Dropdown -->
+    <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+        <li><a href="/vi"><i class="icon-off"></i>Tiếng Việt</a></li>
+        <li><a href="/en"><i class="icon-off"></i>English</a></li>
+        <li><a href="/zh"><i class="icon-off"></i>Chinese</a></li>
+        <li><a href="#ModalGeneral" role="button" data-toggle="modal" class="ChangePassWord">
+            <i class="icon-cog"></i>Đổi mật khẩu</a>
             <li><a href="/Account/Logoff"><i class="icon-off"></i>Thoát </a></li>
-        </ul>
-        <!-- BEGIN User Dropdown --></li>
+    </ul>
+    <!-- BEGIN User Dropdown --></li>
 }
 else
 {
@@ -30,7 +34,7 @@ else
                     }
                 }
             });
-        });        
+        });
     });
     function noticeChangePassWord(success, message) {
         if (success) {
@@ -43,4 +47,4 @@ else
             alert(message);
         }
     };
-    </script>
+</script>

@@ -18,7 +18,7 @@ namespace NationalIT.Controllers
             var db = DB.Entities;
 
             var model = DB.Entities.Ward.FirstOrDefault(m => m.ID == id);
-            ViewBag.District = CommonFunction.BuildDropdown(db.District.Select(m => m.ID).ToArray(), 
+            ViewBag.District = Common.BuildDropdown(db.District.Select(m => m.ID).ToArray(), 
                 db.District.Select(m => m.Title).ToArray(), model == null ? 0 : model.DistrictID, null);
             return View(model);
         }
@@ -45,7 +45,7 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                ViewBag.District = CommonFunction.BuildDropdown(db.District.Select(m => m.ID).ToArray(),
+                ViewBag.District = Common.BuildDropdown(db.District.Select(m => m.ID).ToArray(),
                 db.District.Select(m => m.Title).ToArray(), model == null ? 0 : model.DistrictID, null);
                 return View(model);
             }
@@ -86,7 +86,7 @@ namespace NationalIT.Controllers
             var db = DB.Entities;
 
             var model = DB.Entities.District.FirstOrDefault(m => m.ID == id);
-            ViewBag.Province = CommonFunction.BuildDropdown(db.Province.Select(m => m.ID).ToArray(),
+            ViewBag.Province = Common.BuildDropdown(db.Province.Select(m => m.ID).ToArray(),
                 db.Province.Select(m => m.Title).ToArray(), model == null ? 0 : model.ProvinceID, null);
             return View(model);
         }
@@ -112,7 +112,7 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                ViewBag.Province = CommonFunction.BuildDropdown(db.Province.Select(m => m.ID).ToArray(),
+                ViewBag.Province = Common.BuildDropdown(db.Province.Select(m => m.ID).ToArray(),
                 db.Province.Select(m => m.Title).ToArray(), model == null ? 0 : model.ProvinceID, null);
                 return View(model);
             }
