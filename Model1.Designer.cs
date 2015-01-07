@@ -23,9 +23,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_ImagePost_Post", "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.Post), "ImagePost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.ImagePost), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_District_Province", "Province", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.Province), "District", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.District), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Ward_District", "District", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.District), "Ward", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Ward), true)]
 
 #endregion
 
@@ -80,18 +77,50 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LoaiBDS> LoaiBDS
+        public ObjectSet<Cate> Cate
         {
             get
             {
-                if ((_LoaiBDS == null))
+                if ((_Cate == null))
                 {
-                    _LoaiBDS = base.CreateObjectSet<LoaiBDS>("LoaiBDS");
+                    _Cate = base.CreateObjectSet<Cate>("Cate");
                 }
-                return _LoaiBDS;
+                return _Cate;
             }
         }
-        private ObjectSet<LoaiBDS> _LoaiBDS;
+        private ObjectSet<Cate> _Cate;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Document> Document
+        {
+            get
+            {
+                if ((_Document == null))
+                {
+                    _Document = base.CreateObjectSet<Document>("Document");
+                }
+                return _Document;
+            }
+        }
+        private ObjectSet<Document> _Document;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HtmlPage> HtmlPage
+        {
+            get
+            {
+                if ((_HtmlPage == null))
+                {
+                    _HtmlPage = base.CreateObjectSet<HtmlPage>("HtmlPage");
+                }
+                return _HtmlPage;
+            }
+        }
+        private ObjectSet<HtmlPage> _HtmlPage;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -108,6 +137,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<mConfig> _mConfig;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Menu> Menu
+        {
+            get
+            {
+                if ((_Menu == null))
+                {
+                    _Menu = base.CreateObjectSet<Menu>("Menu");
+                }
+                return _Menu;
+            }
+        }
+        private ObjectSet<Menu> _Menu;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -144,6 +189,22 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<mLanguage> mLanguage
+        {
+            get
+            {
+                if ((_mLanguage == null))
+                {
+                    _mLanguage = base.CreateObjectSet<mLanguage>("mLanguage");
+                }
+                return _mLanguage;
+            }
+        }
+        private ObjectSet<mLanguage> _mLanguage;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<mMenu> mMenu
         {
             get
@@ -156,22 +217,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<mMenu> _mMenu;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<MoneyFilter> MoneyFilter
-        {
-            get
-            {
-                if ((_MoneyFilter == null))
-                {
-                    _MoneyFilter = base.CreateObjectSet<MoneyFilter>("MoneyFilter");
-                }
-                return _MoneyFilter;
-            }
-        }
-        private ObjectSet<MoneyFilter> _MoneyFilter;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -208,70 +253,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Ward> Ward
-        {
-            get
-            {
-                if ((_Ward == null))
-                {
-                    _Ward = base.CreateObjectSet<Ward>("Ward");
-                }
-                return _Ward;
-            }
-        }
-        private ObjectSet<Ward> _Ward;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Menu> Menu
-        {
-            get
-            {
-                if ((_Menu == null))
-                {
-                    _Menu = base.CreateObjectSet<Menu>("Menu");
-                }
-                return _Menu;
-            }
-        }
-        private ObjectSet<Menu> _Menu;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<HtmlPage> HtmlPage
-        {
-            get
-            {
-                if ((_HtmlPage == null))
-                {
-                    _HtmlPage = base.CreateObjectSet<HtmlPage>("HtmlPage");
-                }
-                return _HtmlPage;
-            }
-        }
-        private ObjectSet<HtmlPage> _HtmlPage;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ImagePost> ImagePost
-        {
-            get
-            {
-                if ((_ImagePost == null))
-                {
-                    _ImagePost = base.CreateObjectSet<ImagePost>("ImagePost");
-                }
-                return _ImagePost;
-            }
-        }
-        private ObjectSet<ImagePost> _ImagePost;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Post> Post
         {
             get
@@ -284,65 +265,33 @@ namespace NationalIT
             }
         }
         private ObjectSet<Post> _Post;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<District> District
-        {
-            get
-            {
-                if ((_District == null))
-                {
-                    _District = base.CreateObjectSet<District>("District");
-                }
-                return _District;
-            }
-        }
-        private ObjectSet<District> _District;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Province> Province
-        {
-            get
-            {
-                if ((_Province == null))
-                {
-                    _Province = base.CreateObjectSet<Province>("Province");
-                }
-                return _Province;
-            }
-        }
-        private ObjectSet<Province> _Province;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<mLanguage> mLanguage
-        {
-            get
-            {
-                if ((_mLanguage == null))
-                {
-                    _mLanguage = base.CreateObjectSet<mLanguage>("mLanguage");
-                }
-                return _mLanguage;
-            }
-        }
-        private ObjectSet<mLanguage> _mLanguage;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the LoaiBDS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Cate EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToLoaiBDS(LoaiBDS loaiBDS)
+        public void AddToCate(Cate cate)
         {
-            base.AddObject("LoaiBDS", loaiBDS);
+            base.AddObject("Cate", cate);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Document EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDocument(Document document)
+        {
+            base.AddObject("Document", document);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HtmlPage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHtmlPage(HtmlPage htmlPage)
+        {
+            base.AddObject("HtmlPage", htmlPage);
         }
     
         /// <summary>
@@ -351,6 +300,14 @@ namespace NationalIT
         public void AddTomConfig(mConfig mConfig)
         {
             base.AddObject("mConfig", mConfig);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Menu EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMenu(Menu menu)
+        {
+            base.AddObject("Menu", menu);
         }
     
         /// <summary>
@@ -370,19 +327,19 @@ namespace NationalIT
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the mLanguage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTomLanguage(mLanguage mLanguage)
+        {
+            base.AddObject("mLanguage", mLanguage);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the mMenu EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTomMenu(mMenu mMenu)
         {
             base.AddObject("mMenu", mMenu);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the MoneyFilter EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMoneyFilter(MoneyFilter moneyFilter)
-        {
-            base.AddObject("MoneyFilter", moneyFilter);
         }
     
         /// <summary>
@@ -402,67 +359,11 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Ward EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToWard(Ward ward)
-        {
-            base.AddObject("Ward", ward);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Menu EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMenu(Menu menu)
-        {
-            base.AddObject("Menu", menu);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the HtmlPage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToHtmlPage(HtmlPage htmlPage)
-        {
-            base.AddObject("HtmlPage", htmlPage);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ImagePost EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToImagePost(ImagePost imagePost)
-        {
-            base.AddObject("ImagePost", imagePost);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Post EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPost(Post post)
         {
             base.AddObject("Post", post);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the District EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDistrict(District district)
-        {
-            base.AddObject("District", district);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Province EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToProvince(Province province)
-        {
-            base.AddObject("Province", province);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the mLanguage EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTomLanguage(mLanguage mLanguage)
-        {
-            base.AddObject("mLanguage", mLanguage);
         }
 
         #endregion
@@ -476,26 +377,26 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="District")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Cate")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class District : EntityObject
+    public partial class Cate : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new District object.
+        /// Create a new Cate object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="provinceID">Initial value of the ProvinceID property.</param>
-        public static District CreateDistrict(global::System.Int32 id, global::System.String title, global::System.Int32 provinceID)
+        /// <param name="languageID">Initial value of the LanguageID property.</param>
+        public static Cate CreateCate(global::System.Int32 id, global::System.String title, global::System.Int32 languageID)
         {
-            District district = new District();
-            district.ID = id;
-            district.Title = title;
-            district.ProvinceID = provinceID;
-            return district;
+            Cate cate = new Cate();
+            cate.ID = id;
+            cate.Title = title;
+            cate.LanguageID = languageID;
+            return cate;
         }
 
         #endregion
@@ -558,92 +459,207 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ProvinceID
+        public global::System.Int32 LanguageID
         {
             get
             {
-                return _ProvinceID;
+                return _LanguageID;
             }
             set
             {
-                OnProvinceIDChanging(value);
-                ReportPropertyChanging("ProvinceID");
-                _ProvinceID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ProvinceID");
-                OnProvinceIDChanged();
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
             }
         }
-        private global::System.Int32 _ProvinceID;
-        partial void OnProvinceIDChanging(global::System.Int32 value);
-        partial void OnProvinceIDChanged();
+        private global::System.Int32 _LanguageID;
+        partial void OnLanguageIDChanging(global::System.Int32 value);
+        partial void OnLanguageIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KeyUrl
+        {
+            get
+            {
+                return _KeyUrl;
+            }
+            set
+            {
+                OnKeyUrlChanging(value);
+                ReportPropertyChanging("KeyUrl");
+                _KeyUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("KeyUrl");
+                OnKeyUrlChanged();
+            }
+        }
+        private global::System.String _KeyUrl;
+        partial void OnKeyUrlChanging(global::System.String value);
+        partial void OnKeyUrlChanged();
 
         #endregion
 
     
-        #region Navigation Properties
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Document")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Document : EntityObject
+    {
+        #region Factory Method
     
         /// <summary>
-        /// No Metadata Documentation available.
+        /// Create a new Document object.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_District_Province", "Province")]
-        public Province Province
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="languageID">Initial value of the LanguageID property.</param>
+        public static Document CreateDocument(global::System.Int32 id, global::System.Int32 languageID)
         {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Province>("DB_9B22F2_nationalitModel.FK_District_Province", "Province").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Province>("DB_9B22F2_nationalitModel.FK_District_Province", "Province").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Province> ProvinceReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Province>("DB_9B22F2_nationalitModel.FK_District_Province", "Province");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Province>("DB_9B22F2_nationalitModel.FK_District_Province", "Province", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Ward_District", "Ward")]
-        public EntityCollection<Ward> Ward
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Ward>("DB_9B22F2_nationalitModel.FK_Ward_District", "Ward");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Ward>("DB_9B22F2_nationalitModel.FK_Ward_District", "Ward", value);
-                }
-            }
+            Document document = new Document();
+            document.ID = id;
+            document.LanguageID = languageID;
+            return document;
         }
 
         #endregion
 
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Url
+        {
+            get
+            {
+                return _Url;
+            }
+            set
+            {
+                OnUrlChanging(value);
+                ReportPropertyChanging("Url");
+                _Url = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Url");
+                OnUrlChanged();
+            }
+        }
+        private global::System.String _Url;
+        partial void OnUrlChanging(global::System.String value);
+        partial void OnUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Content
+        {
+            get
+            {
+                return _Content;
+            }
+            set
+            {
+                OnContentChanging(value);
+                ReportPropertyChanging("Content");
+                _Content = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Content");
+                OnContentChanged();
+            }
+        }
+        private global::System.String _Content;
+        partial void OnContentChanging(global::System.String value);
+        partial void OnContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LanguageID
+        {
+            get
+            {
+                return _LanguageID;
+            }
+            set
+            {
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
+            }
+        }
+        private global::System.Int32 _LanguageID;
+        partial void OnLanguageIDChanging(global::System.Int32 value);
+        partial void OnLanguageIDChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>
@@ -661,11 +677,13 @@ namespace NationalIT
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="keyUrl">Initial value of the KeyUrl property.</param>
-        public static HtmlPage CreateHtmlPage(global::System.Int32 id, global::System.String keyUrl)
+        /// <param name="languageID">Initial value of the LanguageID property.</param>
+        public static HtmlPage CreateHtmlPage(global::System.Int32 id, global::System.String keyUrl, global::System.Int32 languageID)
         {
             HtmlPage htmlPage = new HtmlPage();
             htmlPage.ID = id;
             htmlPage.KeyUrl = keyUrl;
+            htmlPage.LanguageID = languageID;
             return htmlPage;
         }
 
@@ -747,264 +765,30 @@ namespace NationalIT
         private global::System.String _Content;
         partial void OnContentChanging(global::System.String value);
         partial void OnContentChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="ImagePost")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ImagePost : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new ImagePost object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="url">Initial value of the Url property.</param>
-        /// <param name="postID">Initial value of the PostID property.</param>
-        public static ImagePost CreateImagePost(global::System.Int32 id, global::System.String url, global::System.Int32 postID)
-        {
-            ImagePost imagePost = new ImagePost();
-            imagePost.ID = id;
-            imagePost.Url = url;
-            imagePost.PostID = postID;
-            return imagePost;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Url
+        public global::System.Int32 LanguageID
         {
             get
             {
-                return _Url;
+                return _LanguageID;
             }
             set
             {
-                OnUrlChanging(value);
-                ReportPropertyChanging("Url");
-                _Url = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Url");
-                OnUrlChanged();
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
             }
         }
-        private global::System.String _Url;
-        partial void OnUrlChanging(global::System.String value);
-        partial void OnUrlChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PostID
-        {
-            get
-            {
-                return _PostID;
-            }
-            set
-            {
-                OnPostIDChanging(value);
-                ReportPropertyChanging("PostID");
-                _PostID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PostID");
-                OnPostIDChanged();
-            }
-        }
-        private global::System.Int32 _PostID;
-        partial void OnPostIDChanging(global::System.Int32 value);
-        partial void OnPostIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_ImagePost_Post", "Post")]
-        public Post Post
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "Post").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "Post").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Post> PostReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "Post");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Post>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "Post", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="LoaiBDS")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class LoaiBDS : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new LoaiBDS object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        public static LoaiBDS CreateLoaiBDS(global::System.Int32 id, global::System.String title)
-        {
-            LoaiBDS loaiBDS = new LoaiBDS();
-            loaiBDS.ID = id;
-            loaiBDS.Title = title;
-            return loaiBDS;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
+        private global::System.Int32 _LanguageID;
+        partial void OnLanguageIDChanging(global::System.Int32 value);
+        partial void OnLanguageIDChanged();
 
         #endregion
 
@@ -1345,6 +1129,30 @@ namespace NationalIT
         private global::System.Boolean _Activated;
         partial void OnActivatedChanging(global::System.Boolean value);
         partial void OnActivatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> LanguageID
+        {
+            get
+            {
+                return _LanguageID;
+            }
+            set
+            {
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _LanguageID;
+        partial void OnLanguageIDChanging(Nullable<global::System.Int32> value);
+        partial void OnLanguageIDChanged();
 
         #endregion
 
@@ -2048,115 +1856,6 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="MoneyFilter")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class MoneyFilter : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new MoneyFilter object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="from">Initial value of the From property.</param>
-        /// <param name="to">Initial value of the To property.</param>
-        public static MoneyFilter CreateMoneyFilter(global::System.Int32 id, global::System.Int32 from, global::System.Int32 to)
-        {
-            MoneyFilter moneyFilter = new MoneyFilter();
-            moneyFilter.ID = id;
-            moneyFilter.From = from;
-            moneyFilter.To = to;
-            return moneyFilter;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 From
-        {
-            get
-            {
-                return _From;
-            }
-            set
-            {
-                OnFromChanging(value);
-                ReportPropertyChanging("From");
-                _From = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("From");
-                OnFromChanged();
-            }
-        }
-        private global::System.Int32 _From;
-        partial void OnFromChanging(global::System.Int32 value);
-        partial void OnFromChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 To
-        {
-            get
-            {
-                return _To;
-            }
-            set
-            {
-                OnToChanging(value);
-                ReportPropertyChanging("To");
-                _To = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("To");
-                OnToChanged();
-            }
-        }
-        private global::System.Int32 _To;
-        partial void OnToChanging(global::System.Int32 value);
-        partial void OnToChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mRole")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2682,12 +2381,11 @@ namespace NationalIT
         /// <param name="hot">Initial value of the Hot property.</param>
         /// <param name="created">Initial value of the Created property.</param>
         /// <param name="status">Initial value of the Status property.</param>
-        /// <param name="province">Initial value of the Province property.</param>
-        /// <param name="loaiBDSID">Initial value of the LoaiBDSID property.</param>
-        /// <param name="hinhThuc">Initial value of the HinhThuc property.</param>
+        /// <param name="languageID">Initial value of the LanguageID property.</param>
+        /// <param name="cateID">Initial value of the CateID property.</param>
         /// <param name="viewCount">Initial value of the ViewCount property.</param>
         /// <param name="deleted">Initial value of the Deleted property.</param>
-        public static Post CreatePost(global::System.Int32 id, global::System.String title, global::System.Boolean hot, global::System.DateTime created, global::System.Int32 status, global::System.Int32 province, global::System.Int32 loaiBDSID, global::System.Int32 hinhThuc, global::System.Int32 viewCount, global::System.Boolean deleted)
+        public static Post CreatePost(global::System.Int32 id, global::System.String title, global::System.Boolean hot, global::System.DateTime created, global::System.Int32 status, global::System.Int32 languageID, global::System.Int32 cateID, global::System.Int32 viewCount, global::System.Boolean deleted)
         {
             Post post = new Post();
             post.ID = id;
@@ -2695,9 +2393,8 @@ namespace NationalIT
             post.Hot = hot;
             post.Created = created;
             post.Status = status;
-            post.Province = province;
-            post.LoaiBDSID = loaiBDSID;
-            post.HinhThuc = hinhThuc;
+            post.LanguageID = languageID;
+            post.CateID = cateID;
             post.ViewCount = viewCount;
             post.Deleted = deleted;
             return post;
@@ -2857,218 +2554,50 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ContactName
+        public global::System.Int32 LanguageID
         {
             get
             {
-                return _ContactName;
+                return _LanguageID;
             }
             set
             {
-                OnContactNameChanging(value);
-                ReportPropertyChanging("ContactName");
-                _ContactName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ContactName");
-                OnContactNameChanged();
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
             }
         }
-        private global::System.String _ContactName;
-        partial void OnContactNameChanging(global::System.String value);
-        partial void OnContactNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ContactPhone
-        {
-            get
-            {
-                return _ContactPhone;
-            }
-            set
-            {
-                OnContactPhoneChanging(value);
-                ReportPropertyChanging("ContactPhone");
-                _ContactPhone = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ContactPhone");
-                OnContactPhoneChanged();
-            }
-        }
-        private global::System.String _ContactPhone;
-        partial void OnContactPhoneChanging(global::System.String value);
-        partial void OnContactPhoneChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ContactEmail
-        {
-            get
-            {
-                return _ContactEmail;
-            }
-            set
-            {
-                OnContactEmailChanging(value);
-                ReportPropertyChanging("ContactEmail");
-                _ContactEmail = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ContactEmail");
-                OnContactEmailChanged();
-            }
-        }
-        private global::System.String _ContactEmail;
-        partial void OnContactEmailChanging(global::System.String value);
-        partial void OnContactEmailChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Money
-        {
-            get
-            {
-                return _Money;
-            }
-            set
-            {
-                OnMoneyChanging(value);
-                ReportPropertyChanging("Money");
-                _Money = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Money");
-                OnMoneyChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _Money;
-        partial void OnMoneyChanging(Nullable<global::System.Decimal> value);
-        partial void OnMoneyChanged();
+        private global::System.Int32 _LanguageID;
+        partial void OnLanguageIDChanging(global::System.Int32 value);
+        partial void OnLanguageIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Province
+        public global::System.Int32 CateID
         {
             get
             {
-                return _Province;
+                return _CateID;
             }
             set
             {
-                OnProvinceChanging(value);
-                ReportPropertyChanging("Province");
-                _Province = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Province");
-                OnProvinceChanged();
+                OnCateIDChanging(value);
+                ReportPropertyChanging("CateID");
+                _CateID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CateID");
+                OnCateIDChanged();
             }
         }
-        private global::System.Int32 _Province;
-        partial void OnProvinceChanging(global::System.Int32 value);
-        partial void OnProvinceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> District
-        {
-            get
-            {
-                return _District;
-            }
-            set
-            {
-                OnDistrictChanging(value);
-                ReportPropertyChanging("District");
-                _District = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("District");
-                OnDistrictChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _District;
-        partial void OnDistrictChanging(Nullable<global::System.Int32> value);
-        partial void OnDistrictChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Ward
-        {
-            get
-            {
-                return _Ward;
-            }
-            set
-            {
-                OnWardChanging(value);
-                ReportPropertyChanging("Ward");
-                _Ward = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Ward");
-                OnWardChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Ward;
-        partial void OnWardChanging(Nullable<global::System.Int32> value);
-        partial void OnWardChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 LoaiBDSID
-        {
-            get
-            {
-                return _LoaiBDSID;
-            }
-            set
-            {
-                OnLoaiBDSIDChanging(value);
-                ReportPropertyChanging("LoaiBDSID");
-                _LoaiBDSID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LoaiBDSID");
-                OnLoaiBDSIDChanged();
-            }
-        }
-        private global::System.Int32 _LoaiBDSID;
-        partial void OnLoaiBDSIDChanging(global::System.Int32 value);
-        partial void OnLoaiBDSIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 HinhThuc
-        {
-            get
-            {
-                return _HinhThuc;
-            }
-            set
-            {
-                OnHinhThucChanging(value);
-                ReportPropertyChanging("HinhThuc");
-                _HinhThuc = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HinhThuc");
-                OnHinhThucChanged();
-            }
-        }
-        private global::System.Int32 _HinhThuc;
-        partial void OnHinhThucChanging(global::System.Int32 value);
-        partial void OnHinhThucChanged();
+        private global::System.Int32 _CateID;
+        partial void OnCateIDChanging(global::System.Int32 value);
+        partial void OnCateIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3117,296 +2646,34 @@ namespace NationalIT
         private global::System.Boolean _Deleted;
         partial void OnDeletedChanging(global::System.Boolean value);
         partial void OnDeletedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _UserID;
+        partial void OnUserIDChanging(Nullable<global::System.Int32> value);
+        partial void OnUserIDChanged();
 
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_ImagePost_Post", "ImagePost")]
-        public EntityCollection<ImagePost> ImagePost
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ImagePost>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "ImagePost");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ImagePost>("DB_9B22F2_nationalitModel.FK_ImagePost_Post", "ImagePost", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Province")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Province : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Province object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        public static Province CreateProvince(global::System.Int32 id, global::System.String title)
-        {
-            Province province = new Province();
-            province.ID = id;
-            province.Title = title;
-            return province;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_District_Province", "District")]
-        public EntityCollection<District> District
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<District>("DB_9B22F2_nationalitModel.FK_District_Province", "District");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<District>("DB_9B22F2_nationalitModel.FK_District_Province", "District", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Ward")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Ward : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Ward object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="districtID">Initial value of the DistrictID property.</param>
-        public static Ward CreateWard(global::System.Int32 id, global::System.String title, global::System.Int32 districtID)
-        {
-            Ward ward = new Ward();
-            ward.ID = id;
-            ward.Title = title;
-            ward.DistrictID = districtID;
-            return ward;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 DistrictID
-        {
-            get
-            {
-                return _DistrictID;
-            }
-            set
-            {
-                OnDistrictIDChanging(value);
-                ReportPropertyChanging("DistrictID");
-                _DistrictID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DistrictID");
-                OnDistrictIDChanged();
-            }
-        }
-        private global::System.Int32 _DistrictID;
-        partial void OnDistrictIDChanging(global::System.Int32 value);
-        partial void OnDistrictIDChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Ward_District", "District")]
-        public District District
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<District>("DB_9B22F2_nationalitModel.FK_Ward_District", "District").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<District>("DB_9B22F2_nationalitModel.FK_Ward_District", "District").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<District> DistrictReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<District>("DB_9B22F2_nationalitModel.FK_Ward_District", "District");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<District>("DB_9B22F2_nationalitModel.FK_Ward_District", "District", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
 
     #endregion

@@ -39,6 +39,7 @@ namespace NationalIT.Controllers
                     db.AttachTo("HtmlPage", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
+                model.LanguageID = CurrentLanguage.ID; ;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

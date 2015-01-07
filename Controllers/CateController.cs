@@ -6,24 +6,23 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class MoneyFilterController : BaseController
+    public class CateController : BaseController
     {
-        public ActionResult Index()
+        [Authorize]
+        public ActionResult AdminIndex()
         {
-            return View(DB.Entities.MoneyFilter.ToList());
+            return View(DB.Entities.Cate.ToList());
         }
-        //
-        public ActionResult NewOrEdit(int? id = 0)
+        [Authorize]
+        public ActionResult AdminEdit(int? id = 0)
         {
             var db = DB.Entities;
-
-            var model = DB.Entities.MoneyFilter.FirstOrDefault(m => m.ID == id);
+            var model = DB.Entities.Cate.FirstOrDefault(m => m.ID == id);
             return View(model);
         }
-
+        [Authorize]
         [HttpPost]
-        public ActionResult NewOrEdit(MoneyFilter model, FormCollection frm)
+        public ActionResult AdminEdit(Cate model)
         {
             var db = DB.Entities;
             try
@@ -31,24 +30,27 @@ namespace NationalIT.Controllers
                 if (model.ID == 0)
                 {
                     // Edit                    
-                    db.MoneyFilter.AddObject(model);
+                    db.Cate.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("MoneyFilter", model);
+                    db.AttachTo("Cate", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
+                if (string.IsNullOrEmpty(model.KeyUrl))
+                    model.KeyUrl = Common.CreateURLParam(model.Title);
+                model.LanguageID = CurrentLanguage.ID;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
             catch
             {
                 return View(model);
             }
         }
-
-        public ActionResult Delete(string arrayID = "")
+        [Authorize]
+        public ActionResult AdminDelete(string arrayID = "")
         {
             try
             {
@@ -60,17 +62,16 @@ namespace NationalIT.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.MoneyFilter.FirstOrDefault(m => m.ID == tmpID);
-                        db.MoneyFilter.DeleteObject(obj);
+                        var obj = db.Cate.FirstOrDefault(m => m.ID == tmpID);
+                        db.Cate.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }
             }
             catch
             {
-
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
     }
 }

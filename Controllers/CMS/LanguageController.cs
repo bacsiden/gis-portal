@@ -6,24 +6,24 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class LoaiBDSController : BaseController
+    public class LanguageController : BaseController
     {
-        public ActionResult Index()
+        [Authorize]
+        public ActionResult AdminIndex()
         {
-            return View(DB.Entities.LoaiBDS.ToList());
+            return View(DB.Entities.mLanguage.ToList());
         }
-        //
-        public ActionResult NewOrEdit(int? id = 0)
+        [Authorize]
+        public ActionResult AdminEdit(int? id = 0)
         {
             var db = DB.Entities;
 
-            var model = DB.Entities.LoaiBDS.FirstOrDefault(m => m.ID == id);
+            var model = DB.Entities.mLanguage.FirstOrDefault(m => m.ID == id);
             return View(model);
         }
-
+        [Authorize]
         [HttpPost]
-        public ActionResult NewOrEdit(LoaiBDS model, FormCollection frm)
+        public ActionResult AdminEdit(mLanguage model)
         {
             var db = DB.Entities;
             try
@@ -31,24 +31,24 @@ namespace NationalIT.Controllers
                 if (model.ID == 0)
                 {
                     // Edit                    
-                    db.LoaiBDS.AddObject(model);
+                    db.mLanguage.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("LoaiBDS", model);
+                    db.AttachTo("mLanguage", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
             catch
             {
                 return View(model);
             }
         }
-
-        public ActionResult Delete(string arrayID = "")
+        [Authorize]
+        public ActionResult AdminDelete(string arrayID = "")
         {
             try
             {
@@ -60,17 +60,16 @@ namespace NationalIT.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.LoaiBDS.FirstOrDefault(m => m.ID == tmpID);
-                        db.LoaiBDS.DeleteObject(obj);
+                        var obj = db.mLanguage.FirstOrDefault(m => m.ID == tmpID);
+                        db.mLanguage.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }
             }
             catch
             {
-
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
     }
 }

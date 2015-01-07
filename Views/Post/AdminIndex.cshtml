@@ -12,16 +12,6 @@
                             <select name="loaiID" class="filter-post select-status" style="width:110px">
                                 <option value="1">Chờ duyệt</option>
                                 <option value="2">Đã duyệt</option>
-                                @*<option value="3">Đã gỡ</option>*@
-                                <option selected="selected" value="">Tất cả</option>
-                            </select>
-                        </div>
-                        <div class="span2">
-                            Hình thức<br />
-                            <select name="hinhthuc" class="filter-post select-hinhthuc" style="width:110px">
-                                <option value="1">Cần bán</option>
-                                <option value="2">Cần mua</option>
-                                <option value="3">Cho thuê</option>
                                 <option selected="selected" value="">Tất cả</option>
                             </select>
                         </div>
@@ -33,7 +23,7 @@
                             </select>
                         </div>
                         <div class="span4">
-                            Loại bất động sản
+                            Kênh tin
                             <select name="loaiID" class="filter-post select-loai">
                                 @Html.Raw(ViewBag.dataLoai)
                             </select>

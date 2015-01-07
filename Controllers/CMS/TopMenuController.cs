@@ -13,7 +13,7 @@ namespace NationalIT.Controllers
             return View(DB.Entities.Menu.OrderBy(m => m.ParentID).ThenBy(m => m.Oder).ToList());
         }
 
-
+        [Authorize]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var db = DB.Entities;
@@ -25,7 +25,7 @@ namespace NationalIT.Controllers
             ViewBag.dropDown = new SelectList(lst.ToList(), "ID", "Title", "");
             return View(model);
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult NewOrEdit(Menu model, FormCollection frm)
         {
@@ -43,6 +43,7 @@ namespace NationalIT.Controllers
                     db.AttachTo("Menu", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
+                model.LanguageID = CurrentLanguage.ID;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -56,6 +57,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
+        [Authorize]
         public string DoActive(int id)
         {
             try
@@ -78,6 +80,7 @@ namespace NationalIT.Controllers
             }
 
         }
+        [Authorize]
         public ActionResult Delete(int id)
         {
             try
