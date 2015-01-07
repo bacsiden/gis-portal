@@ -59,7 +59,7 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var list = db.mMenu.Where(n => n.mFunction.FirstOrDefault(x => x.mRole.FirstOrDefault(y => y.mGroup.FirstOrDefault(z=>z.mUser.FirstOrDefault(z1=>z1.UserName == username)!=null)!=null) != null) != null).ToList();
+                var list = db.mMenu.Where(n => n.mFunction.FirstOrDefault(x => x.mRole.FirstOrDefault(y => y.mGroup.FirstOrDefault(z => z.mUser.FirstOrDefault(z1 => z1.UserName == username) != null) != null) != null) != null).ToList();
                 if (list != null && list.Count() > 0)
                 {
                     foreach (var item in list)
@@ -312,8 +312,8 @@ namespace NationalIT.Controllers
 
         public ActionResult LogOn(string hidefilter)
         {
-            if(string.IsNullOrEmpty(hidefilter))
-            Response.Redirect("/Account/LogOn/?hidefilter=1");
+            if (string.IsNullOrEmpty(hidefilter))
+                Response.Redirect("/Account/LogOn/?hidefilter=1");
             return View();
         }
 
@@ -501,7 +501,7 @@ namespace NationalIT.Controllers
         [HttpPost]
         public ActionResult SetPassword(Models.ChangePasswordModel model, string username)
         {
-            if (model.NewPassword==model.ConfirmPassword)
+            if (model.NewPassword == model.ConfirmPassword)
             {
 
                 try
@@ -524,7 +524,7 @@ namespace NationalIT.Controllers
 
             }
             // If we got this far, something failed, redisplay form
-            return RedirectToAction("SetPassword", new {username = username});
+            return RedirectToAction("SetPassword", new { username = username });
         }
 
         [Authorize]
@@ -541,7 +541,7 @@ namespace NationalIT.Controllers
 
         public static string temp1 = "<li class='{3}'><a href=\"{1}\" class='menu-item-a {5}'>{2}<span>&nbsp;{0}</span>{4} </a>{6}</li>";
         public static string temp2 = "<ul class=\"submenu\">{0}</ul>";
-        public static string BuildMenu()
+        public static string BuildMenu(string languageCode)
         {
             var user = new UserDAL().GetCurrentUser;
             string s = "";
@@ -571,7 +571,7 @@ namespace NationalIT.Controllers
                     }
                     else
                     {
-                        s += string.Format(temp1, item.Title, item.Url, item.Icon, tmp, "", "", "");
+                        s += string.Format(temp1, item.Title, "/" + languageCode + item.Url, item.Icon, tmp, "", "", "");
                     }
 
                 }

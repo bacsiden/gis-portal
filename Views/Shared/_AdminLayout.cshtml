@@ -1,5 +1,6 @@
 ﻿@{
-    ViewBag.Menu = NationalIT.Controllers.AccountController.BuildMenu();
+    var lang = HttpContext.Current.Request.RequestContext.RouteData.Values["site_language"].ToString();
+    ViewBag.Menu = NationalIT.Controllers.AccountController.BuildMenu(lang);
     var ctrler = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
 }
 <!DOCTYPE html>

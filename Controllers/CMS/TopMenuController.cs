@@ -10,7 +10,7 @@ namespace NationalIT.Controllers
     {
         public ActionResult Index()
         {
-            return View(DB.Entities.Menu.OrderBy(m => m.ParentID).ThenBy(m => m.Oder).ToList());
+            return View(DB.Entities.Menu.Where(m => m.LanguageID == CurrentLanguage.ID).OrderBy(m => m.ParentID).ThenBy(m => m.Oder).ToList());
         }
 
         [Authorize]
