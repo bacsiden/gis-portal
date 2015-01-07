@@ -1,0 +1,36 @@
+﻿@model List<NationalIT.Ward>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Phường / Xã</h3>
+        <div class="row-fluid">
+            @Html.Partial("_TopButton", "Ward")
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    <input type="checkbox" name="" value="" class="checkAll" />
+                </th>
+                <th>
+                    Tên phường / xã
+                </th>
+                <th>
+                    Tên quận / huyện
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.Title, "WardUpdate", new { id = item.ID })
+                    </td>
+                    <td>
+                        @(item.District.Title)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

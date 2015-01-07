@@ -1,0 +1,9 @@
+﻿@model NationalIT.Post
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đăng tin bất động sản";
+}
+
+@Html.Partial("_ListPostHome", (NationalIT.Models.ListPost)ViewBag.listPost)
+
+@Html.Partial("_ListPostHome", (NationalIT.Models.ListPost)ViewBag.listBuyPost)

@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_9B22F2_nationalitModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_9B22F2_nationalitModelStoreContainer">
+          <EntitySet Name="District" EntityType="DB_9B22F2_nationalitModel.Store.District" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HtmlPage" EntityType="DB_9B22F2_nationalitModel.Store.HtmlPage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImagePost" EntityType="DB_9B22F2_nationalitModel.Store.ImagePost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoaiBDS" EntityType="DB_9B22F2_nationalitModel.Store.LoaiBDS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mConfig" EntityType="DB_9B22F2_nationalitModel.Store.mConfig" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Menu" EntityType="DB_9B22F2_nationalitModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mFunction" EntityType="DB_9B22F2_nationalitModel.Store.mFunction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mFunctionInRole" EntityType="DB_9B22F2_nationalitModel.Store.mFunctionInRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mGroup" EntityType="DB_9B22F2_nationalitModel.Store.mGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mMenu" EntityType="DB_9B22F2_nationalitModel.Store.mMenu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mMenuInFunction" EntityType="DB_9B22F2_nationalitModel.Store.mMenuInFunction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MoneyFilter" EntityType="DB_9B22F2_nationalitModel.Store.MoneyFilter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mRole" EntityType="DB_9B22F2_nationalitModel.Store.mRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mRoleInGroup" EntityType="DB_9B22F2_nationalitModel.Store.mRoleInGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mUser" EntityType="DB_9B22F2_nationalitModel.Store.mUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mUserInGroup" EntityType="DB_9B22F2_nationalitModel.Store.mUserInGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Post" EntityType="DB_9B22F2_nationalitModel.Store.Post" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Province" EntityType="DB_9B22F2_nationalitModel.Store.Province" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ward" EntityType="DB_9B22F2_nationalitModel.Store.Ward" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_District_Province" Association="DB_9B22F2_nationalitModel.Store.FK_District_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionInRole_Function" Association="DB_9B22F2_nationalitModel.Store.FK_FunctionInRole_Function">
+            <End Role="mFunction" EntitySet="mFunction" />
+            <End Role="mFunctionInRole" EntitySet="mFunctionInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionInRole_Role1" Association="DB_9B22F2_nationalitModel.Store.FK_FunctionInRole_Role1">
+            <End Role="mRole" EntitySet="mRole" />
+            <End Role="mFunctionInRole" EntitySet="mFunctionInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImagePost_Post" Association="DB_9B22F2_nationalitModel.Store.FK_ImagePost_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="ImagePost" EntitySet="ImagePost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mMenuInFunction_mFunction" Association="DB_9B22F2_nationalitModel.Store.FK_mMenuInFunction_mFunction">
+            <End Role="mFunction" EntitySet="mFunction" />
+            <End Role="mMenuInFunction" EntitySet="mMenuInFunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mMenuInRole_mMenu" Association="DB_9B22F2_nationalitModel.Store.FK_mMenuInRole_mMenu">
+            <End Role="mMenu" EntitySet="mMenu" />
+            <End Role="mMenuInFunction" EntitySet="mMenuInFunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInGroup_Group" Association="DB_9B22F2_nationalitModel.Store.FK_RoleInGroup_Group">
+            <End Role="mGroup" EntitySet="mGroup" />
+            <End Role="mRoleInGroup" EntitySet="mRoleInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInGroup_Role1" Association="DB_9B22F2_nationalitModel.Store.FK_RoleInGroup_Role1">
+            <End Role="mRole" EntitySet="mRole" />
+            <End Role="mRoleInGroup" EntitySet="mRoleInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInGroup_Group" Association="DB_9B22F2_nationalitModel.Store.FK_UserInGroup_Group">
+            <End Role="mGroup" EntitySet="mGroup" />
+            <End Role="mUserInGroup" EntitySet="mUserInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInGroup_User" Association="DB_9B22F2_nationalitModel.Store.FK_UserInGroup_User">
+            <End Role="mUser" EntitySet="mUser" />
+            <End Role="mUserInGroup" EntitySet="mUserInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ward_District" Association="DB_9B22F2_nationalitModel.Store.FK_Ward_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Ward" EntitySet="Ward" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProvinceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HtmlPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KeyUrl" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ImagePost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="LoaiBDS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Multiline" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Oder" Type="int" Nullable="false" />
+          <Property Name="Activated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mFunction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="mFunctionInRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="FunctionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="TabTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Oder" Type="int" />
+          <Property Name="Inherit" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="mMenuInFunction">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="FunctionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoneyFilter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="int" Nullable="false" />
+          <Property Name="To" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="mRoleInGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AspnetUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="Avata" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mUserInGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Content" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Hot" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Money" Type="money" />
+          <Property Name="Province" Type="int" Nullable="false" />
+          <Property Name="District" Type="int" />
+          <Property Name="Ward" Type="int" />
+          <Property Name="LoaiBDSID" Type="int" Nullable="false" />
+          <Property Name="HinhThuc" Type="int" Nullable="false" />
+          <Property Name="ViewCount" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DistrictID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_District_Province">
+          <End Role="Province" Type="DB_9B22F2_nationalitModel.Store.Province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="District" Type="DB_9B22F2_nationalitModel.Store.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionInRole_Function">
+          <End Role="mFunction" Type="DB_9B22F2_nationalitModel.Store.mFunction" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mFunctionInRole" Type="DB_9B22F2_nationalitModel.Store.mFunctionInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mFunction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mFunctionInRole">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionInRole_Role1">
+          <End Role="mRole" Type="DB_9B22F2_nationalitModel.Store.mRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mFunctionInRole" Type="DB_9B22F2_nationalitModel.Store.mFunctionInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mFunctionInRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImagePost_Post">
+          <End Role="Post" Type="DB_9B22F2_nationalitModel.Store.Post" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ImagePost" Type="DB_9B22F2_nationalitModel.Store.ImagePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImagePost">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mMenuInFunction_mFunction">
+          <End Role="mFunction" Type="DB_9B22F2_nationalitModel.Store.mFunction" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mMenuInFunction" Type="DB_9B22F2_nationalitModel.Store.mMenuInFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mFunction">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mMenuInFunction">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mMenuInRole_mMenu">
+          <End Role="mMenu" Type="DB_9B22F2_nationalitModel.Store.mMenu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mMenuInFunction" Type="DB_9B22F2_nationalitModel.Store.mMenuInFunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mMenu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mMenuInFunction">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInGroup_Group">
+          <End Role="mGroup" Type="DB_9B22F2_nationalitModel.Store.mGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mRoleInGroup" Type="DB_9B22F2_nationalitModel.Store.mRoleInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mRoleInGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInGroup_Role1">
+          <End Role="mRole" Type="DB_9B22F2_nationalitModel.Store.mRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mRoleInGroup" Type="DB_9B22F2_nationalitModel.Store.mRoleInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mRoleInGroup">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInGroup_Group">
+          <End Role="mGroup" Type="DB_9B22F2_nationalitModel.Store.mGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mUserInGroup" Type="DB_9B22F2_nationalitModel.Store.mUserInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mUserInGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInGroup_User">
+          <End Role="mUser" Type="DB_9B22F2_nationalitModel.Store.mUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mUserInGroup" Type="DB_9B22F2_nationalitModel.Store.mUserInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="mUserInGroup">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ward_District">
+          <End Role="District" Type="DB_9B22F2_nationalitModel.Store.District" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ward" Type="DB_9B22F2_nationalitModel.Store.Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9B22F2_nationalitModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DB_9B22F2_nationalitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoaiBDS" EntityType="DB_9B22F2_nationalitModel.LoaiBDS" />
+          <EntitySet Name="mConfig" EntityType="DB_9B22F2_nationalitModel.mConfig" />
+          <EntitySet Name="mFunction" EntityType="DB_9B22F2_nationalitModel.mFunction" />
+          <EntitySet Name="mGroup" EntityType="DB_9B22F2_nationalitModel.mGroup" />
+          <EntitySet Name="mMenu" EntityType="DB_9B22F2_nationalitModel.mMenu" />
+          <EntitySet Name="MoneyFilter" EntityType="DB_9B22F2_nationalitModel.MoneyFilter" />
+          <EntitySet Name="mRole" EntityType="DB_9B22F2_nationalitModel.mRole" />
+          <EntitySet Name="mUser" EntityType="DB_9B22F2_nationalitModel.mUser" />
+          <AssociationSet Name="mFunctionInRole" Association="DB_9B22F2_nationalitModel.mFunctionInRole">
+            <End Role="mFunction" EntitySet="mFunction" />
+            <End Role="mRole" EntitySet="mRole" />
+          </AssociationSet>
+          <AssociationSet Name="mMenuInFunction" Association="DB_9B22F2_nationalitModel.mMenuInFunction">
+            <End Role="mFunction" EntitySet="mFunction" />
+            <End Role="mMenu" EntitySet="mMenu" />
+          </AssociationSet>
+          <AssociationSet Name="mRoleInGroup" Association="DB_9B22F2_nationalitModel.mRoleInGroup">
+            <End Role="mGroup" EntitySet="mGroup" />
+            <End Role="mRole" EntitySet="mRole" />
+          </AssociationSet>
+          <AssociationSet Name="mUserInGroup" Association="DB_9B22F2_nationalitModel.mUserInGroup">
+            <End Role="mGroup" EntitySet="mGroup" />
+            <End Role="mUser" EntitySet="mUser" />
+          </AssociationSet>
+          <EntitySet Name="Ward" EntityType="DB_9B22F2_nationalitModel.Ward" />
+          <EntitySet Name="Menu" EntityType="DB_9B22F2_nationalitModel.Menu" />
+          <EntitySet Name="HtmlPage" EntityType="DB_9B22F2_nationalitModel.HtmlPage" />
+          <EntitySet Name="ImagePost" EntityType="DB_9B22F2_nationalitModel.ImagePost" />
+          <EntitySet Name="Post" EntityType="DB_9B22F2_nationalitModel.Post" />
+          <AssociationSet Name="FK_ImagePost_Post" Association="DB_9B22F2_nationalitModel.FK_ImagePost_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="ImagePost" EntitySet="ImagePost" />
+          </AssociationSet>
+          <EntitySet Name="District" EntityType="DB_9B22F2_nationalitModel.District" />
+          <EntitySet Name="Province" EntityType="DB_9B22F2_nationalitModel.Province" />
+          <AssociationSet Name="FK_District_Province" Association="DB_9B22F2_nationalitModel.FK_District_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ward_District" Association="DB_9B22F2_nationalitModel.FK_Ward_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Ward" EntitySet="Ward" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LoaiBDS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Multiline" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mFunction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="mRole" Relationship="DB_9B22F2_nationalitModel.mFunctionInRole" FromRole="mFunction" ToRole="mRole" />
+          <NavigationProperty Name="mMenu" Relationship="DB_9B22F2_nationalitModel.mMenuInFunction" FromRole="mFunction" ToRole="mMenu" />
+        </EntityType>
+        <EntityType Name="mGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="mRole" Relationship="DB_9B22F2_nationalitModel.mRoleInGroup" FromRole="mGroup" ToRole="mRole" />
+          <NavigationProperty Name="mUser" Relationship="DB_9B22F2_nationalitModel.mUserInGroup" FromRole="mGroup" ToRole="mUser" />
+        </EntityType>
+        <EntityType Name="mMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="TabTitle" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Oder" />
+          <Property Type="Boolean" Name="Inherit" />
+          <Property Type="Boolean" Name="IsActive" />
+          <NavigationProperty Name="mFunction" Relationship="DB_9B22F2_nationalitModel.mMenuInFunction" FromRole="mMenu" ToRole="mFunction" />
+        </EntityType>
+        <EntityType Name="MoneyFilter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="From" Nullable="false" />
+          <Property Type="Int32" Name="To" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="mFunction" Relationship="DB_9B22F2_nationalitModel.mFunctionInRole" FromRole="mRole" ToRole="mFunction" />
+          <NavigationProperty Name="mGroup" Relationship="DB_9B22F2_nationalitModel.mRoleInGroup" FromRole="mRole" ToRole="mGroup" />
+        </EntityType>
+        <EntityType Name="mUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="AspnetUserID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sex" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthday" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Boolean" Name="Locked" Nullable="false" />
+          <Property Type="String" Name="Avata" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mGroup" Relationship="DB_9B22F2_nationalitModel.mUserInGroup" FromRole="mUser" ToRole="mGroup" />
+        </EntityType>
+        <Association Name="mFunctionInRole">
+          <End Type="DB_9B22F2_nationalitModel.mFunction" Role="mFunction" Multiplicity="*" />
+          <End Type="DB_9B22F2_nationalitModel.mRole" Role="mRole" Multiplicity="*" />
+        </Association>
+        <Association Name="mMenuInFunction">
+          <End Type="DB_9B22F2_nationalitModel.mFunction" Role="mFunction" Multiplicity="*" />
+          <End Type="DB_9B22F2_nationalitModel.mMenu" Role="mMenu" Multiplicity="*" />
+        </Association>
+        <Association Name="mRoleInGroup">
+          <End Type="DB_9B22F2_nationalitModel.mGroup" Role="mGroup" Multiplicity="*" />
+          <End Type="DB_9B22F2_nationalitModel.mRole" Role="mRole" Multiplicity="*" />
+        </Association>
+        <Association Name="mUserInGroup">
+          <End Type="DB_9B22F2_nationalitModel.mGroup" Role="mGroup" Multiplicity="*" />
+          <End Type="DB_9B22F2_nationalitModel.mUser" Role="mUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DistrictID" Nullable="false" />
+          <NavigationProperty Name="District" Relationship="DB_9B22F2_nationalitModel.FK_Ward_District" FromRole="Ward" ToRole="District" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Oder" Nullable="false" />
+          <Property Type="Boolean" Name="Activated" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HtmlPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="KeyUrl" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ImagePost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PostID" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="DB_9B22F2_nationalitModel.FK_ImagePost_Post" FromRole="ImagePost" ToRole="Post" />
+          <Property Type="String" Name="Title" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Hot" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="ContactName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactPhone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactEmail" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Money" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="Province" Nullable="false" />
+          <Property Type="Int32" Name="District" />
+          <Property Type="Int32" Name="Ward" />
+          <Property Type="Int32" Name="LoaiBDSID" Nullable="false" />
+          <Property Type="Int32" Name="HinhThuc" Nullable="false" />
+          <NavigationProperty Name="ImagePost" Relationship="DB_9B22F2_nationalitModel.FK_ImagePost_Post" FromRole="Post" ToRole="ImagePost" />
+          <Property Type="Int32" Name="ViewCount" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ImagePost_Post">
+          <End Type="DB_9B22F2_nationalitModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.ImagePost" Role="ImagePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImagePost">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ProvinceID" Nullable="false" />
+          <NavigationProperty Name="Province" Relationship="DB_9B22F2_nationalitModel.FK_District_Province" FromRole="District" ToRole="Province" />
+          <NavigationProperty Name="Ward" Relationship="DB_9B22F2_nationalitModel.FK_Ward_District" FromRole="District" ToRole="Ward" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="District" Relationship="DB_9B22F2_nationalitModel.FK_District_Province" FromRole="Province" ToRole="District" />
+        </EntityType>
+        <Association Name="FK_District_Province">
+          <End Type="DB_9B22F2_nationalitModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ward_District">
+          <End Type="DB_9B22F2_nationalitModel.District" Role="District" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.Ward" Role="Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_9B22F2_nationalitModelStoreContainer" CdmEntityContainer="DB_9B22F2_nationalitEntities">
+          <EntitySetMapping Name="LoaiBDS">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.LoaiBDS">
+              <MappingFragment StoreEntitySet="LoaiBDS">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mConfig">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mConfig">
+              <MappingFragment StoreEntitySet="mConfig">
+                <ScalarProperty Name="Multiline" ColumnName="Multiline" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mFunction">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mFunction">
+              <MappingFragment StoreEntitySet="mFunction">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mGroup">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mGroup">
+              <MappingFragment StoreEntitySet="mGroup">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mMenu">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mMenu">
+              <MappingFragment StoreEntitySet="mMenu">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Inherit" ColumnName="Inherit" />
+                <ScalarProperty Name="Oder" ColumnName="Oder" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TabTitle" ColumnName="TabTitle" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoneyFilter">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.MoneyFilter">
+              <MappingFragment StoreEntitySet="MoneyFilter">
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mRole">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mRole">
+              <MappingFragment StoreEntitySet="mRole">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mUser">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.mUser">
+              <MappingFragment StoreEntitySet="mUser">
+                <ScalarProperty Name="Avata" ColumnName="Avata" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AspnetUserID" ColumnName="AspnetUserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="mFunctionInRole" TypeName="DB_9B22F2_nationalitModel.mFunctionInRole" StoreEntitySet="mFunctionInRole">
+            <EndProperty Name="mRole">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="mFunction">
+              <ScalarProperty Name="ID" ColumnName="FunctionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="mMenuInFunction" TypeName="DB_9B22F2_nationalitModel.mMenuInFunction" StoreEntitySet="mMenuInFunction">
+            <EndProperty Name="mMenu">
+              <ScalarProperty Name="ID" ColumnName="MenuID" />
+            </EndProperty>
+            <EndProperty Name="mFunction">
+              <ScalarProperty Name="ID" ColumnName="FunctionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="mRoleInGroup" TypeName="DB_9B22F2_nationalitModel.mRoleInGroup" StoreEntitySet="mRoleInGroup">
+            <EndProperty Name="mRole">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="mGroup">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="mUserInGroup" TypeName="DB_9B22F2_nationalitModel.mUserInGroup" StoreEntitySet="mUserInGroup">
+            <EndProperty Name="mUser">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="mGroup">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Ward">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Ward">
+              <MappingFragment StoreEntitySet="Ward">
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="Oder" ColumnName="Oder" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HtmlPage">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.HtmlPage">
+              <MappingFragment StoreEntitySet="HtmlPage">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="KeyUrl" ColumnName="KeyUrl" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagePost">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.ImagePost">
+              <MappingFragment StoreEntitySet="ImagePost">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="HinhThuc" ColumnName="HinhThuc" />
+                <ScalarProperty Name="LoaiBDSID" ColumnName="LoaiBDSID" />
+                <ScalarProperty Name="Ward" ColumnName="Ward" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Province">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.LoaiBDS" Width="1.5" PointX="5.75" PointY="7.75" Height="1.2636116536458326" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mConfig" Width="1.5" PointX="7.75" PointY="1.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mFunction" Width="1.5" PointX="0.75" PointY="3.75" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mGroup" Width="1.5" PointX="0.75" PointY="1" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mMenu" Width="1.5" PointX="3" PointY="3.375" Height="2.5783902994791674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.MoneyFilter" Width="1.5" PointX="7.75" PointY="8.75" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mRole" Width="1.5" PointX="3" PointY="0.75" Height="1.7566536458333388" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mUser" Width="1.5" PointX="3" PointY="7.625" Height="3.0714322916666683" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.mFunctionInRole" >
+          <ConnectorPoint PointX="2.25" PointY="3.75" />
+          <ConnectorPoint PointX="2.625" PointY="3.375" />
+          <ConnectorPoint PointX="2.625" PointY="1.6283268229166694" />
+          <ConnectorPoint PointX="3" PointY="1.6283268229166694" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.mMenuInFunction" >
+          <ConnectorPoint PointX="2.25" PointY="4.6595793229166667" />
+          <ConnectorPoint PointX="2.7291666666666665" PointY="4.6595793229166658" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="4.6595793229166667" />
+          <ConnectorPoint PointX="3" PointY="4.6595793229166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.mRoleInGroup" >
+          <ConnectorPoint PointX="2.25" PointY="2.1299902343750041" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="2.1299902343750037" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="2.1299902343750041" />
+          <ConnectorPoint PointX="3" PointY="2.1299902343750041" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.mUserInGroup" >
+          <ConnectorPoint PointX="2.25" PointY="2.5299976227964747" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="2.8460720576975951" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="2.9639231878953538" />
+          <ConnectorPoint PointX="2.8125" PointY="3.0924976227964747" />
+          <ConnectorPoint PointX="2.8125" PointY="9.1607161458333337" />
+          <ConnectorPoint PointX="3" PointY="9.1607161458333337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Ward" Width="1.5" PointX="12.625" PointY="8.875" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Menu" Width="1.5" PointX="5.375" PointY="11.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.HtmlPage" Width="1.5" PointX="0.75" PointY="11.75" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.ImagePost" Width="1.5" PointX="9.625" PointY="13.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Post" Width="1.5" PointX="7.375" PointY="12" Height="4.0956022135416674" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_ImagePost_Post" >
+          <ConnectorPoint PointX="8.875" PointY="14.115143229166666" />
+          <ConnectorPoint PointX="9.625" PointY="14.115143229166666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.District" Width="1.5" PointX="10.375" PointY="5.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Province" Width="1.5" PointX="8.125" PointY="6" Height="1.5956835937500031" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_District_Province" >
+          <ConnectorPoint PointX="9.625" PointY="6.7978417968750016" />
+          <ConnectorPoint PointX="10.375" PointY="6.7978417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Ward_District" >
+          <ConnectorPoint PointX="11.125" PointY="7.7302864583333388" />
+          <ConnectorPoint PointX="11.125" PointY="9.7689925130208337" />
+          <ConnectorPoint PointX="12.625" PointY="9.7689925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

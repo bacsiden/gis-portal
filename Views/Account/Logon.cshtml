@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đăng nhập hệ thống";
+}
+@model NationalIT.Models.LogOnModel
+<style type="text/css">
+    .field-validation-error, .validation-summary-errors, .field-validation-valid
+    {
+        color: Red;
+    }
+    ul
+    {
+        list-style: none;
+        padding: 0;
+    }
+</style>
+<div class="span2">&nbsp;</div>
+<div class="span8">
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form-login" }))
+{
+    <h3>
+        Đăng nhập hệ thống</h3>
+    @Html.ValidationSummary(true, "Đăng nhập thất bại!")
+    @Html.Hidden("ReturnUrl", Request.QueryString["ReturnUrl"]);
+    <div class="control-group">
+        <div class="controls">
+            @Html.ValidationMessageFor(m => m.UserName, "")
+            @Html.TextBoxFor(m => m.UserName, new { @class = "input-block-level", placeholder = "User name" })
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            @Html.ValidationMessageFor(m => m.Password, "")
+            @Html.PasswordFor(m => m.Password, new { @class = "input-block-level", placeholder = "Password" })
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                Lưu mật khẩu
+            </label>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls span4">
+            <button type="submit" class="btn btn-primary input-block-level">
+                Đăng nhập</button>
+        </div>
+    </div>
+}
+</div>
+<div class="span2">&nbsp;</div>

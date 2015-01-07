@@ -1,0 +1,90 @@
+.field-validation-error
+{
+    color: Red;
+}
+
+.contactform textarea
+{
+    font-size: 13px !important;
+}
+.blog_post h2
+{
+    margin: 0;
+    line-height: 23px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.blog_post p span
+{
+    float: left;
+    min-width: 22%;
+    width: auto;
+}
+
+.blog_post p label
+{
+    color: #666;
+    float: left;
+    font: 11px Arial;
+    margin-right: 5px;
+    text-transform: capitalize;
+}
+
+.a-txt-cl1
+{
+    color: #0774b9;
+    float: left;
+    font: bold 11px Arial;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.a-txt-cl1 strong
+{
+    color: #ff5b00;
+    font: bold 11px Arial;
+}
+
+
+.border-post
+{
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+}
+
+h3.title-h3
+{
+    margin: 0;
+}
+.bdskhac
+{
+    border-bottom: 1px solid #6fb554;
+    color: #6fb554;
+    width: 230px;
+}
+ul.ul3.mt2 a
+{
+    color: #005580;
+    margin-left: 6px;
+}
+
+ul.ul3.mt2 a:hover
+{
+    color: #6fb554;
+    margin-left: 10px;
+}
+
+ul.ul3.mt2 li
+{
+    margin-bottom: 6px;
+}
+
+h2 a
+{
+    color: #0774B9;
+}
