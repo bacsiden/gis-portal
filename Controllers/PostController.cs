@@ -55,6 +55,12 @@ namespace NationalIT.Controllers
         public ActionResult AdminEdit(int? id = 0)
         {
             var obj = DB.Entities.Post.FirstOrDefault(m => m.ID == id);
+            var lstcate = new List<Cate>();
+            var objcate = new Cate() { ID = 0, Title = "None" };
+            lstcate.Add(objcate);
+            lstcate.AddRange(DB.Entities.Cate);
+            ViewBag.kenhtin = new SelectList(lstcate.ToList(), "ID", "Title", "");
+
             return View(obj);
         }
 
@@ -62,37 +68,50 @@ namespace NationalIT.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult AdminEdit(Post model, FormCollection frm, HttpPostedFileBase file)
         {
-            var db = DB.Entities;
-            Post obj = null;
-            if (model.ID == 0)
+            try
             {
-                obj = new Post();
-                obj.Created = DateTime.Now.Date;
-                obj.UserID = CurrentUser.ID;
-                obj.LanguageID = CurrentLanguage.ID;
-                obj.Status = (int)PostStatus.Disabled;
-                obj.Hot = true;
-                obj.CateID = 4;
-                obj.ViewCount = 0;
-                obj.Deleted = false;
+                var db = DB.Entities;
+                Post obj = null;
+                if (model.ID == 0)
+                {
+                    obj = new Post();
+                    obj.Created = DateTime.Now.Date;
+                    obj.UserID = CurrentUser.ID;
+                    obj.LanguageID = CurrentLanguage.ID;
+                    obj.Status = (int)PostStatus.Enabled;
+                    obj.Hot = true;
+                    obj.ViewCount = 0;
+                    obj.Deleted = false;
+                }
+                else
+                    obj = db.Post.FirstOrDefault(m => m.ID == model.ID);
+                obj.Title = model.Title;
+                obj.Summary = model.Summary;
+                obj.Content = model.Content;
+                obj.CateID = model.CateID;
+                if (file != null)
+                {
+                    var now = DateTime.Now;
+                    var fileName = string.Format("{0}-{1}-{2}-{3}-{4}-{5}", now.Day, now.Hour, now.Minute, now.Second,
+                        now.Millisecond, CurrentUser.Email.Replace("@", "--")) + Path.GetExtension(file.FileName);
+                    file.SaveAs(Path.Combine(Server.MapPath("~/Uploads/"), fileName));
+                    obj.ImageUrl = "/Uploads/" + fileName;
+                }
+                if (model.ID == 0)
+                    db.Post.AddObject(obj);
+                db.SaveChanges();
             }
-            else
-                obj = db.Post.FirstOrDefault(m => m.ID == model.ID);
-            obj.Title = model.Title;
-            obj.Summary = model.Summary;
-            obj.Content = model.Content;
-            if (file != null)
+            catch
             {
-                var now = DateTime.Now;
-                var fileName = string.Format("{0}-{1}-{2}-{3}-{4}-{5}", now.Day, now.Hour, now.Minute, now.Second,
-                    now.Millisecond, CurrentUser.Email.Replace("@", "--")) + Path.GetExtension(file.FileName);
-                file.SaveAs(Path.Combine(Server.MapPath("~/Uploads/"), fileName));
-                obj.ImageUrl = "/Uploads/" + fileName;
+                var lstcate = new List<Cate>();
+                var objcate = new Cate() { ID = 0, Title = "None" };
+                lstcate.Add(objcate);
+                lstcate.AddRange(DB.Entities.Cate);
+                ViewBag.kenhtin = new SelectList(lstcate.ToList(), "ID", "Title", "");
+                return View(model);
             }
-            if (model.ID == 0)
-                db.Post.AddObject(obj);
-            db.SaveChanges();
             return RedirectToAction("AdminIndex");
+
         }
         [Authorize]
         public ActionResult AdminDelete(int id)
