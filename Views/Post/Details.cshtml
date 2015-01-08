@@ -2,7 +2,7 @@
 @using NationalIT;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Viegrid Times";
+    ViewBag.Title = Model.Title;
     var db = NationalIT.DB.Entities;
     var cate = db.Cate.FirstOrDefault(m => m.ID == Model.CateID);
     var lstRelate = (List<Post>)ViewBag.lstRelate;

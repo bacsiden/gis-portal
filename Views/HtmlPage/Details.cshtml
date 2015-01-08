@@ -3,4 +3,9 @@
     Layout = "/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Details";
 }
-@Html.Raw(Model.Content)
+<div class="col-md-8 panel-details">
+    @Html.Raw(Model.Content)
+</div>
+<div class="col-md-4">
+    @Html.Action("RightPanel", "Post", new { model = Model })
+</div>

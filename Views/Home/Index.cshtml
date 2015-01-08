@@ -2,7 +2,7 @@
 @using NationalIT;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Viegrid Times";
+    ViewBag.Title = "GIS - PORTAL";
     var db = NationalIT.DB.Entities;
 }
 <script>
@@ -33,7 +33,7 @@
                         int dem = 1;
                         foreach (var item in Model)
                         {
-                            var listPublish = db.Post.Where(m => m.Status == (int)PostStatus.Enabled).Take(8).OrderByDescending(m => m.ID).ToList();
+                            var listPublish = db.Post.Where(m => m.CateID==item.ID && m.Status == (int)PostStatus.Enabled).Take(8).OrderByDescending(m => m.ID).ToList();
                             if (listPublish.Count > 0)
                             {
                                 var listnews = listPublish.Where(m => m.Hot).ToList();
@@ -103,7 +103,7 @@
         <!--Danh mục tin-->
         @foreach (var item in Model)
         {
-            var listPublish = db.Post.Where(m => m.Status == (int)PostStatus.Enabled).Take(8).OrderByDescending(m => m.ID).ToList();
+            var listPublish = db.Post.Where(m => m.CateID == item.ID && m.Status == (int)PostStatus.Enabled).Take(8).OrderByDescending(m => m.ID).ToList();
             if (listPublish.Count > 0)
             {
             <div class="panel panel-warning box-index-news">
