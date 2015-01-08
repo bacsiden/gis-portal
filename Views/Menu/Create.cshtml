@@ -9,7 +9,7 @@
     <div>
         <div class="control-group">
             <label class="control-label">
-                Menu Name</label>
+                Tiêu đề</label>
             <div class="controls">
                 @Html.TextBoxFor(m => m.Title)
             </div>
@@ -24,7 +24,7 @@
                 @Html.TextBoxFor(m => m.Url)
             </div>
             <label class="control-label">
-                Menu parent</label>
+                Menu cha</label>
             <div class="controls">
                 @Html.DropDownListFor(m => m.ParentID, (SelectList)ViewBag.dropDown)
             </div>

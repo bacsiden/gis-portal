@@ -18,11 +18,19 @@ namespace NationalIT.Controllers
         {
             var db = DB.Entities;
             Menu model = id == 0 ? new Menu() { Activated = true, ParentID = 0, Oder = 0 } : db.Menu.FirstOrDefault(m => m.ID == id);
+
             var lst = new List<Menu>();
             var obj = new Menu() { ID = 0, Title = "None" };
             lst.Add(obj);
             lst.AddRange(DB.Entities.Menu);
             ViewBag.dropDown = new SelectList(lst.ToList(), "ID", "Title", "");
+
+            var lstcate = new List<Cate>();
+            var objcate = new Cate() { ID = 0, Title = "None" };
+            lstcate.Add(objcate);
+            lstcate.AddRange(DB.Entities.Cate);
+            ViewBag.kenhtin = new SelectList(lstcate.ToList(), "ID", "Title", "");
+
             return View(model);
         }
         [Authorize]
@@ -54,6 +62,12 @@ namespace NationalIT.Controllers
                 lst.Add(obj);
                 lst.AddRange(DB.Entities.Menu);
                 ViewBag.dropDown = new SelectList(lst.ToList(), "ID", "Title", model.ParentID);
+
+                var lstcate = new List<Cate>();
+                var objcate = new Cate() { ID = 0, Title = "None" };
+                lstcate.Add(objcate);
+                lstcate.AddRange(DB.Entities.Cate);
+                ViewBag.kenhtin = new SelectList(lstcate.ToList(), "ID", "Title", "");
                 return View(model);
             }
         }

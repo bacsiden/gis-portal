@@ -28,6 +28,11 @@ namespace NationalIT
             new { controller = "Post", action = "Details", site_language = "vi", id = UrlParameter.Optional },
             new { site_language = "vi|en|zh" });
             routes.MapRoute(
+            "channel",
+            "{site_language}/channel/{id}",
+            new { controller = "Post", action = "Channel", site_language = "vi", id = UrlParameter.Optional },
+            new { site_language = "vi|en|zh" });
+            routes.MapRoute(
             "Site Language1", // Route name
             "{site_language}/{controller}/{action}/{id}", // URL with parameters
             new { controller = "Home", action = "Index", site_language = "vi", id = UrlParameter.Optional }, // Parameter defaults

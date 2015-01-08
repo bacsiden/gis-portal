@@ -19,10 +19,10 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mFunctionInRole", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
+[assembly: EdmRelationshipAttribute("Model", "mFunctionInRole", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
+[assembly: EdmRelationshipAttribute("Model", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
+[assembly: EdmRelationshipAttribute("Model", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
+[assembly: EdmRelationshipAttribute("Model", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
 
 #endregion
 
@@ -33,32 +33,32 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class DB_9B22F2_nationalitEntities : ObjectContext
+    public partial class GISPortalEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new DB_9B22F2_nationalitEntities object using the connection string found in the 'DB_9B22F2_nationalitEntities' section of the application configuration file.
+        /// Initializes a new GISPortalEntities object using the connection string found in the 'GISPortalEntities' section of the application configuration file.
         /// </summary>
-        public DB_9B22F2_nationalitEntities() : base("name=DB_9B22F2_nationalitEntities", "DB_9B22F2_nationalitEntities")
+        public GISPortalEntities() : base("name=GISPortalEntities", "GISPortalEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new DB_9B22F2_nationalitEntities object.
+        /// Initialize a new GISPortalEntities object.
         /// </summary>
-        public DB_9B22F2_nationalitEntities(string connectionString) : base(connectionString, "DB_9B22F2_nationalitEntities")
+        public GISPortalEntities(string connectionString) : base(connectionString, "GISPortalEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new DB_9B22F2_nationalitEntities object.
+        /// Initialize a new GISPortalEntities object.
         /// </summary>
-        public DB_9B22F2_nationalitEntities(EntityConnection connection) : base(connection, "DB_9B22F2_nationalitEntities")
+        public GISPortalEntities(EntityConnection connection) : base(connection, "GISPortalEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -377,7 +377,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Cate")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Cate")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Cate : EntityObject
@@ -510,7 +510,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Document")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Document")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Document : EntityObject
@@ -665,7 +665,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="HtmlPage")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="HtmlPage")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class HtmlPage : EntityObject
@@ -798,7 +798,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mConfig")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mConfig")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mConfig : EntityObject
@@ -931,7 +931,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Menu")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Menu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Menu : EntityObject
@@ -1153,6 +1153,30 @@ namespace NationalIT
         private Nullable<global::System.Int32> _LanguageID;
         partial void OnLanguageIDChanging(Nullable<global::System.Int32> value);
         partial void OnLanguageIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CateID
+        {
+            get
+            {
+                return _CateID;
+            }
+            set
+            {
+                OnCateIDChanging(value);
+                ReportPropertyChanging("CateID");
+                _CateID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CateID");
+                OnCateIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CateID;
+        partial void OnCateIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCateIDChanged();
 
         #endregion
 
@@ -1162,7 +1186,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mFunction")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mFunction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mFunction : EntityObject
@@ -1270,18 +1294,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mFunctionInRole", "mRole")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mFunctionInRole", "mRole")]
         public EntityCollection<mRole> mRole
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mRole>("DB_9B22F2_nationalitModel.mFunctionInRole", "mRole");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mRole>("Model.mFunctionInRole", "mRole");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mRole>("DB_9B22F2_nationalitModel.mFunctionInRole", "mRole", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mRole>("Model.mFunctionInRole", "mRole", value);
                 }
             }
         }
@@ -1292,18 +1316,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mMenu")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mMenuInFunction", "mMenu")]
         public EntityCollection<mMenu> mMenu
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mMenu>("DB_9B22F2_nationalitModel.mMenuInFunction", "mMenu");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mMenu>("Model.mMenuInFunction", "mMenu");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mMenu>("DB_9B22F2_nationalitModel.mMenuInFunction", "mMenu", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mMenu>("Model.mMenuInFunction", "mMenu", value);
                 }
             }
         }
@@ -1315,7 +1339,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mGroup")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mGroup : EntityObject
@@ -1401,18 +1425,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mRole")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mRoleInGroup", "mRole")]
         public EntityCollection<mRole> mRole
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mRole>("DB_9B22F2_nationalitModel.mRoleInGroup", "mRole");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mRole>("Model.mRoleInGroup", "mRole");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mRole>("DB_9B22F2_nationalitModel.mRoleInGroup", "mRole", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mRole>("Model.mRoleInGroup", "mRole", value);
                 }
             }
         }
@@ -1423,18 +1447,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mUser")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mUserInGroup", "mUser")]
         public EntityCollection<mUser> mUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mUser>("DB_9B22F2_nationalitModel.mUserInGroup", "mUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mUser>("Model.mUserInGroup", "mUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mUser>("DB_9B22F2_nationalitModel.mUserInGroup", "mUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mUser>("Model.mUserInGroup", "mUser", value);
                 }
             }
         }
@@ -1446,7 +1470,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mLanguage")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mLanguage")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mLanguage : EntityObject
@@ -1579,7 +1603,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mMenu")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mMenu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mMenu : EntityObject
@@ -1833,18 +1857,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mMenuInFunction", "mFunction")]
         public EntityCollection<mFunction> mFunction
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mFunction>("DB_9B22F2_nationalitModel.mMenuInFunction", "mFunction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mFunction>("Model.mMenuInFunction", "mFunction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mFunction>("DB_9B22F2_nationalitModel.mMenuInFunction", "mFunction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mFunction>("Model.mMenuInFunction", "mFunction", value);
                 }
             }
         }
@@ -1856,7 +1880,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mRole")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mRole")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mRole : EntityObject
@@ -1966,18 +1990,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mFunctionInRole", "mFunction")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mFunctionInRole", "mFunction")]
         public EntityCollection<mFunction> mFunction
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mFunction>("DB_9B22F2_nationalitModel.mFunctionInRole", "mFunction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mFunction>("Model.mFunctionInRole", "mFunction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mFunction>("DB_9B22F2_nationalitModel.mFunctionInRole", "mFunction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mFunction>("Model.mFunctionInRole", "mFunction", value);
                 }
             }
         }
@@ -1988,18 +2012,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mRoleInGroup", "mGroup")]
         public EntityCollection<mGroup> mGroup
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mGroup>("DB_9B22F2_nationalitModel.mRoleInGroup", "mGroup");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mGroup>("Model.mRoleInGroup", "mGroup");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mGroup>("DB_9B22F2_nationalitModel.mRoleInGroup", "mGroup", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mGroup>("Model.mRoleInGroup", "mGroup", value);
                 }
             }
         }
@@ -2011,7 +2035,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="mUser")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mUser")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class mUser : EntityObject
@@ -2343,18 +2367,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup")]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "mUserInGroup", "mGroup")]
         public EntityCollection<mGroup> mGroup
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mGroup>("DB_9B22F2_nationalitModel.mUserInGroup", "mGroup");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mGroup>("Model.mUserInGroup", "mGroup");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mGroup>("DB_9B22F2_nationalitModel.mUserInGroup", "mGroup", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mGroup>("Model.mUserInGroup", "mGroup", value);
                 }
             }
         }
@@ -2366,7 +2390,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Post")]
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="Post")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Post : EntityObject

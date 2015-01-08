@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="banner-top">
-        <img src="/ContentFront/img/Banner_Satellite1.jpg" />
+        <img src="/ContentFront/img/banner-1.png" />
     </div>
     <nav id="top-menu" role="navigation">
         <div class="container">
@@ -36,8 +36,8 @@
                             <li><a href="#">Contact2 sdf</a></li>
                         </ul>
                     </li>*@
-                    @Html.Raw(NationalIT.BaseController.BuildTopMenu(lang))
-                    @Html.Raw(NationalIT.BaseController.BuildLanguage(lang))
+                    @Html.Raw(new NationalIT.BaseController().BuildTopMenu(lang))
+                    @Html.Raw(new NationalIT.BaseController().BuildLanguage(lang))
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
