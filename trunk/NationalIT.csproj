@@ -75,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CMS\LanguageController.cs" />
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Common.cs" />
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Controllers\CMS\AccountController.cs" />
@@ -93,11 +98,6 @@
     <Compile Include="Utilities\DB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BackupModel.cs" />
@@ -754,10 +754,6 @@
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.ttf%40v=3.2.1" />
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.woff%40v=3.2.1" />
     <None Include="Content\assets\jquery\jquery-1.10.1.min.map" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="TextFile1.txt" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\SystemConfig.cshtml" />
@@ -837,6 +833,10 @@
     <Content Include="Views\Post\AdminEdit.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Post\_RightPanel.cshtml" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />

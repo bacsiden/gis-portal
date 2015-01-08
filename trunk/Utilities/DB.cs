@@ -9,20 +9,20 @@ namespace NationalIT
 {
     public class DB
     {
-        public static DB_9B22F2_nationalitEntities Entities
+        public static GISPortalEntities Entities
         {
             get
             {
-                return new DB_9B22F2_nationalitEntities();
+                return new GISPortalEntities();
             }
         }
         public class BaseClass<T> where T : EntityObject
         {
-            DB_9B22F2_nationalitEntities _db;
+            GISPortalEntities _db;
 
             public BaseClass()
             {
-                _db = new DB_9B22F2_nationalitEntities();
+                _db = new GISPortalEntities();
             }
 
             public T GetByID(int id)
