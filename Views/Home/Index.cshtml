@@ -1,7 +1,7 @@
 ﻿@model List<NationalIT.Cate>
 @using NationalIT;
 @{
-    Layout = "~/Views/Shared/_Layout1.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Viegrid Times";
     var db = NationalIT.DB.Entities;
 }
@@ -16,7 +16,7 @@
     });
 </script>
 <div class="row">
-    <div class="col-md-12  top-buffer">
+    <div class="col-md-8  top-buffer">
         <div class="panel panel-warning">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -45,7 +45,7 @@
                                 <div class="col-md-4">
                                     <div class="col-md-12" style="padding-right: 0;">
                                         <h4>
-                                            <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news.ID, news.Title) })">
+                                            <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news.ID, news.Title) })">
                                                 @news.Title
                                             </a>
                                         </h4>
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 ">
-                                    <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news.ID, news.Title) })" class="newsHeight" style="height:250px">
+                                    <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news.ID, news.Title) })" class="newsHeight" style="height:250px">
                                         <img src="@(@news.ImageUrl)" alt="..." style="" class="img-thumbnail">
                                     </a>
                                 </div>
@@ -63,12 +63,12 @@
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-4" style="padding-right: 0;">
-                                        <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news1.ID, news1.Title) })" class="newsHeight" style="height:150px">
+                                        <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news1.ID, news1.Title) })" class="newsHeight" style="height:150px">
                                             <img src="@(@news1.ImageUrl))" alt="..." style="" class="col-md-12 img-thumbnail">
                                         </a>
                                         <div class="col-md-12" style="height: 65px">
                                             <h5>
-                                                <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news1.ID, news1.Title) })">
+                                                <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news1.ID, news1.Title) })">
                                                     @news1.Title
                                                 </a>
                                             </h5>
@@ -80,7 +80,7 @@
                                             if (item1.ID != news.ID && item1.ID != news1.ID)
                                             {
                                             <ul>
-                                                <li><a href="@Url.Action("Details", new { id = Common.CreateURLParam(item1.ID, item1.Title) })">@item1.Title</a></li>
+                                                <li><a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(item1.ID, item1.Title) })">@item1.Title</a></li>
                                             </ul>
                                             }
                                         }
@@ -117,17 +117,16 @@
                         if (news.Hot)
                         {
                         <div class="media">
-                            <a class="pull-left" href="@Url.Action("Details", new { id = Common.CreateURLParam(news.ID, news.Title) })" class="newsHeight" style="height:150px;">
+                            <a class="pull-left" href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news.ID, news.Title) })" class="newsHeight" style="height:150px;">
                                 <img class="media-object img-thumbnail" src="@(news.ImageUrl)" alt="..." style="width:150px;">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">
-                                    <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news.ID, news.Title) })">@Html.Raw(news.Title)</a></h4>
-                                <p class="text-description">
-                                    (@Html.Raw(@news.Summary))</p>
+                                    <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news.ID, news.Title) })">@Html.Raw(news.Title)</a></h4>
+                                <p class="text-description">@Html.Raw(@news.Summary)</p>
                             </div>
                         </div>
-                                break;
+                            break;
                         }
                     }
                     <div class="media-body">
@@ -137,7 +136,7 @@
                             if (!news.Hot)
                             {
                             <ul>
-                                <a href="@Url.Action("Details", new { id = Common.CreateURLParam(news.ID, news.Title) })">
+                                <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news.ID, news.Title) })">
                                     <li>@news.Title</li></a>
                             </ul>
                             }
@@ -149,6 +148,7 @@
         }
         <!--Danh mục tin-->
     </div>
-    <!---Silde bar right-->
-    @*@Html.Partial("_SildeBarPartial", Model)*@
+    <div class="col-md-4">
+        @Html.Action("RightPanel", "Post", new { model = Model })
+    </div>
 </div>

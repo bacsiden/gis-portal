@@ -22,7 +22,11 @@ namespace NationalIT
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+            "details",
+            "{site_language}/details/{id}",
+            new { controller = "Post", action = "Details", site_language = "vi", id = UrlParameter.Optional },
+            new { site_language = "vi|en|zh" });
             routes.MapRoute(
             "Site Language1", // Route name
             "{site_language}/{controller}/{action}/{id}", // URL with parameters

@@ -14,42 +14,44 @@
         padding: 0;
     }
 </style>
-<div class="span2">&nbsp;</div>
-<div class="span8">
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form-login" }))
-{
-    <h3>
-        Đăng nhập hệ thống</h3>
-    @Html.ValidationSummary(true, "Đăng nhập thất bại!")
-    @Html.Hidden("ReturnUrl", Request.QueryString["ReturnUrl"]);
-    <div class="control-group">
-        <div class="controls">
+<div class="col-md-3">
+    &nbsp;</div>
+<div class="col-md-6">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form-login" }))
+    {
+        <h3>
+            Đăng nhập hệ thống</h3>
+        @Html.ValidationSummary(true, "Đăng nhập thất bại!")
+        @Html.Hidden("ReturnUrl", Request.QueryString["ReturnUrl"]);
+        <div class="control-group">
+            <label for="UserName">
+                Tên đăng nhập</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "User name" })
             @Html.ValidationMessageFor(m => m.UserName, "")
-            @Html.TextBoxFor(m => m.UserName, new { @class = "input-block-level", placeholder = "User name" })
         </div>
-    </div>
-
-    <div class="control-group">
-        <div class="controls">
+        <br />
+        <div class="control-group">
+            <label for="Password">
+                Mật khẩu</label>
             @Html.ValidationMessageFor(m => m.Password, "")
-            @Html.PasswordFor(m => m.Password, new { @class = "input-block-level", placeholder = "Password" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
         </div>
-    </div>
-
-    <div class="control-group">
-        <div class="controls">
-            <label class="checkbox">
-                @Html.CheckBoxFor(m => m.RememberMe)
-                Lưu mật khẩu
-            </label>
+        <div class="checkbox">
+    <label>
+      <input type="checkbox" name="RememberMe"> Nhớ mật khẩu
+    </label>
+  </div>
+        @*<div class="control-group">
+            <label class="RememberMe"></label>*@
+            @*@Html.HiddenFor(m => m.RememberMe)*@
+        @*</div>*@
+        <div class="control-group">
+            <div class="controls span4">
+                <button type="submit" class="btn btn-primary input-block-level">
+                    Đăng nhập</button>
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <div class="controls span4">
-            <button type="submit" class="btn btn-primary input-block-level">
-                Đăng nhập</button>
-        </div>
-    </div>
-}
+    }
 </div>
-<div class="span2">&nbsp;</div>
+<div class="col-md-3">
+    &nbsp;</div>
