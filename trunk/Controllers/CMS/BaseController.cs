@@ -225,7 +225,10 @@ namespace NationalIT
                 return RedirectToAction("Index", "Home");
             }
         }
-
+        public ActionResult NotFound()
+        {
+            return View("/Views/Shared/404.cshtml");
+        }
         public string GetView(string actionName)
         {
             //string site_language = (string)Request.RequestContext.RouteData.Values["site_language"];
@@ -490,11 +493,13 @@ namespace NationalIT
             string url = null;
             if (cateID == null || cateID == 0)
             {
-                var cate = lstCate.FirstOrDefault(m => m.ID == cateID);
-                url = (cate == null) ? "#" : Url.Action("Channel", "Post", new { id = cate.KeyUrl });
+                url = "/" + languageCode + itemurl;
             }
             else
-                url = "/" + languageCode + itemurl;
+            {
+                var cate = lstCate.FirstOrDefault(m => m.ID == cateID);
+                url = (cate == null) ? "#" : "/" + languageCode + "/channel/" + cate.KeyUrl;//u.Action("Channel", "Post", new { id = cate.KeyUrl });
+            }
             return url;
         }
         public string BuildLanguage(string langcode)

@@ -203,6 +203,8 @@ namespace NationalIT.Controllers
             int id1 = Common.GetIDFromURLParam(id);
             var db = DB.Entities;
             var obj = db.Post.FirstOrDefault(m => m.ID == id1);
+            if (obj == null)
+                return NotFound();
             var lstRelate = db.Post.Where(m => m.CateID == obj.CateID && m.Status == (int)PostStatus.Enabled && m.LanguageID == CurrentLanguage.ID)
                 .OrderByDescending(m => m.ID).Take(8).ToList();
             ViewBag.lstRelate = lstRelate;
@@ -212,6 +214,17 @@ namespace NationalIT.Controllers
         {
             ViewBag.langid = CurrentLanguage.ID;
             return PartialView("_RightPanel", model);
+        }
+        public ActionResult Channel(string id)
+        {
+            var db = DB.Entities;
+
+            var cate = db.Cate.FirstOrDefault(m => m.KeyUrl == id);
+            if (cate == null)
+                return NotFound();
+            ViewBag.cate = cate;
+            var lst = db.Post.Where(m => m.CateID == cate.ID && m.LanguageID == CurrentLanguage.ID && m.Status == (int)PostStatus.Enabled).OrderByDescending(m => m.Created).Take(10).ToList();
+            return View(lst);
         }
         #endregion
     }
