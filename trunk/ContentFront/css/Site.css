@@ -40,7 +40,7 @@ body
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 10;
+    z-index: 10000;
     display: none;
 }
 
@@ -77,6 +77,10 @@ body
 
 
 /*** Page Details ***/
+h1.title
+{
+    font-size: 26px;
+}
 .panel-details
 {
     border: 1px solid #faebcc;
@@ -87,7 +91,11 @@ body
 {
     padding: 0 20px;
 }
-
+.postpadding .date
+{
+    font-size: 12px;
+    color: #337ab7;
+}
 a.breadcrumbitem
 {
     color: #b4330c;
@@ -266,4 +274,34 @@ li.item
 #img-language-li
 {
     float: right !important;
+}
+
+.content  img {
+    background-size: contain;
+    max-width: 100%;
+}
+
+.title-top-fix {
+background: -webkit-gradient(linear, -7% 56%, 75% 93%, from(#337ab7), to(#FFFFFF));
+padding: 5px;
+color: #fff;
+font-size: 15px;
+}
+
+#main-content
+{
+    margin-top: -34px;
+}
+
+.col-md-8 {
+padding-right: 0;
+}
+
+.top-buffer .col-md-8 
+{
+    padding-right:15px;
+ }
+ 
+ .abs {
+margin: 0 15px;
 }
