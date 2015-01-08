@@ -257,6 +257,7 @@
     <Content Include="ContentFront\css\dashboard.css" />
     <Content Include="ContentFront\css\Site.css" />
     <Content Include="ContentFront\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ContentFront\img\banner-1.png" />
     <Content Include="ContentFront\img\banner-career.jpg" />
     <Content Include="ContentFront\img\banner-top.jpg" />
     <Content Include="ContentFront\img\Banner_Satellite1.jpg" />
