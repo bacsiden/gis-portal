@@ -1,65 +1,261 @@
-﻿.banner-top img {
-    /*background: url('/Content/img/banner-top.jpg') no-repeat top left;
-    height: 230px;*/
-    /*background-size: 100%;*/
+﻿.banner-top img
+{
+    /*background: url('/Content/img/banner-top.jpg') no-repeat top left;     height: 230px;*/ /*background-size: 100%;*/
     width: 100%;
 }
 
-@media (min-width: 1200px) {
-    .container {
+@media (min-width: 1200px)
+{
+    .container
+    {
         width: 1024px;
     }
 }
 
-body {
+body
+{
     background-color: #eee;
 }
 
-#top-menu {
+#top-menu
+{
     background-color: #337ab7;
     border: none;
     border-radius: 0px;
     margin-bottom: 50px;
 }
-#navbar li {
+#navbar li
+{
     list-style: none;
 }
-#navbar ul {
+#navbar ul
+{
     margin: 0;
 }
-    #navbar li ul {
-        background-color: #337ab7;
-        border-color: #337ab7;
-        padding: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 10;
-        display: none;
-    }
+#navbar li ul
+{
+    background-color: #337ab7;
+    border-color: #337ab7;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
 
-        #navbar li ul a {
-            padding: 15px;
-            border-top: 1px solid #489ae1;
-            min-width: 200px;
-        }
-#navbar li a {
+#navbar li ul a
+{
+    padding: 15px;
+    border-top: 1px solid #489ae1;
+    min-width: 200px;
+}
+#navbar li a
+{
     color: #fff;
     display: block;
     white-space: nowrap;
     padding: 13px;
 }
 
-#navbar > ul > li {
+#navbar > ul > li
+{
     position: relative;
     display: inline-block;
 }
 
-    #navbar > ul > li > a {
-        font-weight: bold;
-    }
+#navbar > ul > li > a
+{
+    font-weight: bold;
+}
 
-#navbar li a:hover, .navbar-default .navbar-nav > .active > a {
+#navbar li a:hover, .navbar-default .navbar-nav > .active > a
+{
     background: #489ae1;
     text-decoration: none;
+}
+
+
+/*** Page Details ***/
+.panel-details
+{
+    border: 1px solid #faebcc;
+    background: #fff;
+}
+
+.postpadding
+{
+    padding: 0 20px;
+}
+
+a.breadcrumbitem
+{
+    color: #b4330c;
+}
+
+.postwrapper .title
+{
+    font-size: 26px;
+    line-height: 35px;
+    margin: 5px 0;
+}
+
+.postwrapper .meta
+{
+    font-size: 11px;
+    font-style: italic;
+}
+
+.postwrapper .meta .date
+{
+    color: #6ccbe7;
+}
+
+.related-news-top
+{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.related-news ul
+{
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+.related-news li.item
+{
+    list-style-type: disc;
+    width: 97%;
+    margin-left: 0;
+    color: #ff6f2f;
+    line-height: 14px;
+}
+
+.related-news li.item a
+{
+    color: #555;
+    font-size: 13px !important;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: -5px;
+    line-height: 20px;
+}
+
+.postwrapper h2.sapo
+{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 15px 0 15px 0;
+}
+
+.related-news.related-news-top h3
+{
+    border-bottom: solid 1px #ddd;
+    border-top: solid 2px #b00600;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.related-news li.item a:hover
+{
+    color: #ff6f2f;
+}
+
+li.item
+{
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.newslistpannel li.item .img
+{
+    float: left;
+    margin-right: 15px;
+}
+
+.newslistpannel .item .postcontent .title, .scrolltopleft .title
+{
+    margin: 9px 0 5px;
+}
+
+.news ul
+{
+    padding-left: 0;
+}
+
+.news ul li
+{
+    list-style: none;
+}
+
+.img-new a img
+{
+    width: 70px;
+}
+
+.imgbanner img
+{
+    width: 100%;
+}
+
+.img-new
+{
+    width: 30%;
+    float: left;
+}
+
+.postcontent
+{
+    width: 70%;
+    float: left;
+}
+
+.postcontent h4
+{
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.news h3
+{
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+    background: #b00600;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 0;
+}
+.imgbannertwo img
+{
+    width:100%;
+}
+
+.bg-news h3 {
+    background: #337ab7;
+    border-bottom: 0 !important;
+    border-top: 0 !important;
+    font-size:14px;
+    color:#fff;
+    padding:10px !important;
+    font-weight:bold;
+}
+
+.banner-top
+{
+    position:relative;
+}
+#Language 
+{
+    width:200px;
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+#Language li
+{
+    width:100%; 
+    border:1px solid #d5d5d5;
 }

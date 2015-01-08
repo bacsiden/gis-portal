@@ -20,6 +20,12 @@ namespace NationalIT.Controllers
 
             return View(db.Cate.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
         }
+        public ActionResult Details()
+        {
+            var db = DB.Entities;
+
+            return View();
+        }
         [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult InsertFile(int id, HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)

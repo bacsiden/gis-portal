@@ -842,6 +842,7 @@
     <Content Include="Views\Language\AdminIndex.cshtml" />
     <Content Include="Views\Post\AdminEdit.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
