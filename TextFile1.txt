@@ -1,24 +1,5 @@
-﻿USE [gis-portal]
-GO
-
-/****** Object:  Table [dbo].[mLanguage]    Script Date: 01/07/2015 10:39:54 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[mLanguage](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[Title] [nvarchar](50) NOT NULL,
-	[Code] [nvarchar](10) NOT NULL,
-	[Logo] [nvarchar](50) NULL,
- CONSTRAINT [PK_mLanguage] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-
-
+﻿http://www.baomoi.com/
+http://danviet.vn/the-gioi/vu-qz8501-hang-khong-gia-re-indonesia-bi-tram-toi-boi-527914.html
+http://chinhphu.vn/portal/page/portal/chinhphu/trangchu
+http://baodientu.chinhphu.vn/Tin-noi-bat/Thu-tuong-Nguyen-Tan-Dung-tiep-Dai-su-Hoa-Ky/217780.vgp
+http://kenh14.vn/musik.chn
