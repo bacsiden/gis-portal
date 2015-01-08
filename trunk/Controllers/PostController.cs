@@ -14,6 +14,7 @@ namespace NationalIT.Controllers
 
     public class PostController : BaseController
     {
+        #region Admin Page
         int pageSize = 5;
         [Authorize]
         public ActionResult AdminIndex(int? page, int? hinhthuc, int? loaiID, int? status, int? noibat)
@@ -175,154 +176,24 @@ namespace NationalIT.Controllers
                 return "";
             }
         }
+        #endregion
 
-        //#region Present page
-        //public ActionResult Filter(int? page, int? khuvuc, int? loaiID, int? hinhthuc)
-        //{
-        //    int pageSize = 2;
-        //    var db = DB.Entities;
-        //    var list = db.Post.Where(m => !m.Deleted && (hinhthuc == null || m.HinhThuc == hinhthuc) && (khuvuc == null || m.District == khuvuc)
-        //        && (loaiID == null || m.LoaiBDSID == loaiID) && m.Status == 2).Take(10).OrderByDescending(m => m.ID).OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
-        //    ViewBag.Title = "Kết quả tìm kiếm bất động sản";
-        //    if (Request.IsAjaxRequest())
-        //    {
-        //        return PartialView("_ListPost", list);
-        //    }
-        //    return View(list);
-        //}
-        //public ActionResult ListHinhThuc(int? page, int? hinhthuc, int? khuvuc, int? loaiID, string title)
-        //{
-        //    int pageSize = 5;
-        //    var db = DB.Entities;
-        //    var list = db.Post.Where(m => !m.Deleted && (hinhthuc == null || m.HinhThuc == hinhthuc) && (khuvuc == null || m.District == khuvuc)
-        //        && (loaiID == null || m.LoaiBDSID == loaiID) && m.Status == 2).Take(10).OrderByDescending(m => m.ID).OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
-        //    ViewBag.Title = "Kết quả tìm kiếm";
-        //    if (hinhthuc == 1)
-        //    {
-        //        ViewBag.Title = "Bất động sản cần bán";
-        //    }
-        //    if (hinhthuc == 2)
-        //    {
-        //        ViewBag.Title = "Bất động sản cần mua";
-        //    }
-        //    if (Request.IsAjaxRequest())
-        //    {
-        //        return PartialView("_ListPost", list);
-        //    }
-        //    return View(list);
-        //}
-        //public ActionResult ListKhuVuc(int? khuvuc, string title)
-        //{
-        //    var db = DB.Entities;
-        //    ViewBag.listPost = new Models.ListPost()
-        //    {
-        //        HotPost = db.Post.Where(m => !m.Deleted && (khuvuc == null || m.District == khuvuc) && m.Hot).OrderByDescending(m => m.Created).ToList(),
-        //        RelatePost = db.Post.Where(m => !m.Deleted && (khuvuc == null || m.District == khuvuc) && !m.Hot).OrderByDescending(m => m.Created).Take(5).ToList(),
-        //        Title = title
-        //    };
-        //    return View();
-        //}
-        //public ActionResult ListLoai(int? loai, string title)
-        //{
-        //    var db = DB.Entities;
-        //    ViewBag.listPost = new Models.ListPost()
-        //    {
-        //        HotPost = db.Post.Where(m => !m.Deleted && (loai == null || m.LoaiBDSID == loai) && m.Hot).OrderByDescending(m => m.Created).ToList(),
-        //        RelatePost = db.Post.Where(m => !m.Deleted && (loai == null || m.LoaiBDSID == loai) && !m.Hot).OrderByDescending(m => m.Created).Take(5).ToList(),
-        //        Title = title
-        //    };
-        //    return View();
-        //}
-        //public ActionResult Details(int id = 0)
-        //{
-        //    var db = DB.Entities;
-        //    var obj = db.Post.FirstOrDefault(m => m.ID == id);
-        //    if (obj != null)
-        //        obj.ViewCount += 1;
-        //    db.SaveChanges();
-        //    ViewBag.relatePost = new Models.ListPost()
-        //    {
-        //        HotPost = db.Post.Where(m => m.HinhThuc == obj.HinhThuc && m.ID != id).OrderByDescending(m => m.Created).Take(5).ToList(),
-        //        RelatePost = new List<Post>(),
-        //        //db.Post.Where(m => !m.Hot && m.ID != id).OrderByDescending(m => m.Created).Take(5).ToList(),
-        //        Title = "Các tin bất động sản khác"
-        //    };
-        //    return View(obj);
-        //}
-        //public ActionResult DangTin()
-        //{
-        //    Models.PostBDS model = new Models.PostBDS() { Province = 1 };
-        //    if (CurrentUser != null)
-        //    {
-        //        model.ContactName = CurrentUser.Name;
-        //        model.ContactPhone = CurrentUser.PhoneNumber;
-        //        model.ContactEmail = CurrentUser.Email;
-        //    }
-        //    return View(model);
-        //}
-        //[HttpPost, ValidateInput(false)]
-        //public ActionResult DangTin(Models.PostBDS model, FormCollection frm, IEnumerable<HttpPostedFileBase> files)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var post = new Post();
-        //            post.Title = model.Title;
-        //            post.Content = model.Content;
-        //            post.Hot = false;
-        //            post.Created = DateTime.Now;
-        //            if (CurrentUser != null)
-        //                post.Status = (int)PostStatus.Enabled;
-        //            else
-        //                post.Status = (int)PostStatus.Init;
-        //            post.ContactName = model.ContactName;
-        //            post.ContactPhone = model.ContactPhone;
-        //            post.ContactEmail = model.ContactEmail;
-        //            if (model.Money != null)
-        //                post.Money = (decimal)model.Money;
-        //            post.Province = model.Province;
-        //            post.District = model.District;
-        //            post.Ward = model.Ward;
-        //            post.LoaiBDSID = model.LoaiBDSID;
-        //            post.HinhThuc = model.HinhThuc;
-
-        //            var db = DB.Entities;
-        //            db.Post.AddObject(post);
-        //            db.SaveChanges();
-        //            #region Uploads
-        //            int autoIncrement = 1;
-        //            foreach (var item in files)
-        //            {
-        //                if (item != null)
-        //                {
-        //                    string filename = post.ID + "_" + autoIncrement + ".jpg";
-        //                    item.SaveAs(Path.Combine(Server.MapPath("~/Uploads/"), filename));
-        //                    var img = new ImagePost();
-        //                    img.PostID = post.ID;
-        //                    img.Url = "/Uploads/" + filename;
-        //                    img.Title = frm["imgtitle" + autoIncrement];
-        //                    db.ImagePost.AddObject(img);
-        //                    autoIncrement++;
-        //                }
-        //            }
-        //            db.SaveChanges();
-        //            #endregion
-        //            return RedirectToAction("Thanks", new { @hidefilter = 1 });
-        //        }
-        //        catch { return View(model); }
-        //    }
-        //    return View(model);
-        //}
-
-        //public ActionResult Thanks()
-        //{
-        //    return View();
-        //}
-        //public ActionResult List()
-        //{
-        //    return View();
-        //}
-        //#endregion
+        #region Present page
+        public ActionResult Details(string id)
+        {
+            int id1 = Common.GetIDFromURLParam(id);
+            var db = DB.Entities;
+            var obj = db.Post.FirstOrDefault(m => m.ID == id1);
+            var lstRelate = db.Post.Where(m => m.CateID == obj.CateID && m.Status == (int)PostStatus.Enabled && m.LanguageID == CurrentLanguage.ID)
+                .OrderByDescending(m => m.ID).Take(8).ToList();
+            ViewBag.lstRelate = lstRelate;
+            return View(obj);
+        }
+        public ActionResult RightPanel(Post model)
+        {
+            ViewBag.langid = CurrentLanguage.ID;
+            return PartialView("_RightPanel", model);
+        }
+        #endregion
     }
 }

@@ -447,15 +447,19 @@ namespace NationalIT
 
             miXML.Save(filePath);
         }
+        //0: active, 1 url, 2 title, 3 icon, 4 child
         public static string temp1 = @"<li{0}><a href='{1}'>{2} {3}</a>{4}</li>";
         public static string temp2 = "<ul>{0}</ul>";
-        public static string BuildTopMenu(string languageCode)
+        public static string BuildTopMenu(string lang)
         {
+            var langobj = Common.GetListLanguage().FirstOrDefault(m => m.Code == lang);
+            var languageCode = langobj.Code;
+            var langid = langobj.ID;
             var user = new UserDAL().GetCurrentUser;
             string s = "";
             string active = " class=\"active\"";
             string icondrop = "<span class='caret'></span>";
-            var lst = DB.Entities.Menu.Where(x => x.Activated).OrderBy(m => m.Oder);
+            var lst = DB.Entities.Menu.Where(x => x.LanguageID == langid && x.Activated).OrderBy(m => m.Oder);
             foreach (var item in lst)
             {
                 if (item.ParentID == null || item.ParentID.Value == 0)
@@ -466,18 +470,31 @@ namespace NationalIT
                         string subLI = "";
                         foreach (var itemSub in listChild)
                         {
-                            subLI += string.Format("<li><a href=\"{1}\" class='menu-item-a'>{0}</a></li>", itemSub.Title, itemSub.Url);
+                            subLI += string.Format("<li><a href=\"{0}\">{1}</a></li>", "/" + languageCode + itemSub.Url, itemSub.Title);
                         }
                         string subMenu = string.Format(temp2, subLI);
-                        s += string.Format(null, "/" + languageCode + item.Url, item.Title, null, null);
+                        s += string.Format(temp1, null, "/" + languageCode + item.Url, item.Title, icondrop, subMenu);
                     }
                     else
                     {
-                        s += string.Format(null, "/" + languageCode + item.Url, item.Title, null, null);
+                        s += string.Format(temp1, null, "/" + languageCode + item.Url, item.Title, null, null);
                     }
-
                 }
             }
+            return s;
+        }
+        public static string BuildLanguage(string langcode)
+        {
+            string t1 = "<li id='img-language-li'> <a href='/{0}'><img src='{1}' id='img-language' /> {2} <span class='caret'></a><ul>{3}</ul></li>";
+            string t2 = "<li><a href='/{0}'><img src='{1}' id='img-language' /> {2}</a></li>";
+            var lang = Common.GetListLanguage().FirstOrDefault(m => m.Code == langcode);
+            var lstlang = Common.GetListLanguage().Where(m => m.Code != langcode);
+            string s = null;
+            foreach (var item in lstlang)
+            {
+                s += string.Format(t2, item.Code, item.Logo, item.Title);
+            }
+            s = string.Format(t1, lang.Code, lang.Logo, lang.Title, s);
             return s;
         }
     }

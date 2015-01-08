@@ -25,16 +25,16 @@
         <label class="control-label" for="Title">
             Tiêu đề
         </label>
-        <div class="controls">
+        <div class="">
             <div class="span12">
-                @Html.TextBoxFor(model => model.Title, new { @class = "input-xlarge" })
+                @Html.TextBoxFor(model => model.Title, new { @class = "input-xxlarge" })
             </div>
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="Address">
             Ảnh đại diện</label>
-        <div class="controls">
+        <div class="">
             <div class="span12">
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     @if (Model != null && !string.IsNullOrEmpty(Model.ImageUrl))
@@ -59,14 +59,14 @@
         </label>
         <div class="controls">
             <div class="span12">
-                @Html.TextAreaFor(model => model.Summary, new { @class = "input-xlarge", col = "50" })
+                @Html.TextAreaFor(model => model.Summary, new { @class = "input-xxlarge" })
             </div>
         </div>
     </div>
     <div class="control-group">
         <label>
             Nội dung</label>
-        <div class="controls">
+        <div class="">
             @Html.TextAreaFor(m => m.Content)
             <script>
                         CKEDITOR.replace('Content', {

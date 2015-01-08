@@ -30,7 +30,7 @@ namespace NationalIT.Controllers
             {
                 if (model.ID == 0)
                 {
-                    // Edit                    
+                    // Edit               
                     db.mLanguage.AddObject(model);
                 }
                 else
