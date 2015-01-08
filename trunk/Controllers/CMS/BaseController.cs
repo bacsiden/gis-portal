@@ -447,6 +447,38 @@ namespace NationalIT
 
             miXML.Save(filePath);
         }
+        public static string temp1 = @"<li{0}><a href='{1}'>{2} {3}</a>{4}</li>";
+        public static string temp2 = "<ul>{0}</ul>";
+        public static string BuildTopMenu(string languageCode)
+        {
+            var user = new UserDAL().GetCurrentUser;
+            string s = "";
+            string active = " class=\"active\"";
+            string icondrop = "<span class='caret'></span>";
+            var lst = DB.Entities.Menu.Where(x => x.Activated).OrderBy(m => m.Oder);
+            foreach (var item in lst)
+            {
+                if (item.ParentID == null || item.ParentID.Value == 0)
+                {
+                    var listChild = lst.Where(m => m.ParentID == item.ID).OrderBy(m => m.Oder).ToList();
+                    if (listChild.Count > 0)
+                    {
+                        string subLI = "";
+                        foreach (var itemSub in listChild)
+                        {
+                            subLI += string.Format("<li><a href=\"{1}\" class='menu-item-a'>{0}</a></li>", itemSub.Title, itemSub.Url);
+                        }
+                        string subMenu = string.Format(temp2, subLI);
+                        s += string.Format(null, "/" + languageCode + item.Url, item.Title, null, null);
+                    }
+                    else
+                    {
+                        s += string.Format(null, "/" + languageCode + item.Url, item.Title, null, null);
+                    }
 
+                }
+            }
+            return s;
+        }
     }
 }
