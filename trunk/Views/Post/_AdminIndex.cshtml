@@ -39,7 +39,7 @@
                     @(item.Created.ToString("dd/MM/yyyy"))
                 </td>
                 <td>
-                    @Html.ActionLink(item.Title, "AdminDetails", new { id = item.ID })
+                    @Html.ActionLink(item.Title, "Details", new { id = NationalIT.Common.CreateURLParam(item.ID, item.Title) })
                 </td>
                 <td>
                     @(cate == null ? null : cate.Title)
