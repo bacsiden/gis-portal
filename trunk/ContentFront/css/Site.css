@@ -282,7 +282,8 @@ li.item
 }
 
 .title-top-fix {
-background: -webkit-gradient(linear, -7% 56%, 75% 93%, from(#337ab7), to(#FFFFFF));
+background-color: #E0277B;
+box-shadow: 3px 3px 5px #888888;
 padding: 5px;
 color: #fff;
 font-size: 15px;
