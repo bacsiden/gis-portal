@@ -21,8 +21,8 @@ body
 {
     background-color: #337ab7;
     border: none;
-    border-radius: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
+    border-bottom: solid 2px #b00600;
 }
 #navbar li
 {
@@ -161,8 +161,10 @@ a.breadcrumbitem
 {
     border-bottom: solid 1px #ddd;
     border-top: solid 2px #b00600;
-    padding: 10px 0;
+    padding: 10px 0 5px 10px;
     margin-bottom: 10px;
+    background-color: #d9edf7;
+    font-size: 1.4em;
 }
 
 .related-news li.item a:hover
@@ -276,33 +278,38 @@ li.item
     float: right !important;
 }
 
-.content  img {
+.content img
+{
     background-size: contain;
     max-width: 100%;
 }
 
-.title-top-fix {
-background-color: #E0498E;
-box-shadow: 3px 3px 5px #888888;
-padding: 5px;
-color: #fff;
-font-size: 15px;
+.title-top-fix
+{
+    background-color: #337AB7;
+    box-shadow: 3px 3px 5px #888888;
+    padding: 5px;
+    color: #fff;
+    font-size: 15px;
 }
 
 #main-content
 {
-    margin-top: -34px;
+    background-color: rgb(222, 226, 231);
+    padding-top: 15px;
 }
 
-.col-md-8 {
-padding-right: 0;
-}
-
-.top-buffer .col-md-8 
+.col-md-8
 {
-    padding-right:15px;
- }
- 
- .abs {
-margin: 0 15px;
+    padding-right: 0;
+}
+
+.top-buffer .col-md-8
+{
+    padding-right: 15px;
+}
+
+.abs
+{
+    margin: 0 15px;
 }
