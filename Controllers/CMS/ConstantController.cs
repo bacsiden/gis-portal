@@ -6,24 +6,23 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
-    public class HtmlPageController : BaseController
+    public class ConstantController : BaseController
     {
-
         public ActionResult Index()
         {
-            return View(DB.Entities.HtmlPage.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
+            return View(DB.Entities.mConstant.Where(m => m.LanguageID == CurrentLanguage.ID).ToList());
         }
         [Authorize]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var db = DB.Entities;
 
-            var model = DB.Entities.HtmlPage.FirstOrDefault(m => m.ID == id);
+            var model = DB.Entities.mConstant.FirstOrDefault(m => m.ID == id);
             return View(model);
         }
         [Authorize]
         [HttpPost, ValidateInput(false)]
-        public ActionResult NewOrEdit(HtmlPage model, FormCollection frm)
+        public ActionResult NewOrEdit(mConstant model, FormCollection frm)
         {
             var db = DB.Entities;
             try
@@ -31,12 +30,12 @@ namespace NationalIT.Controllers
                 if (model.ID == 0)
                 {
                     // Edit                    
-                    db.HtmlPage.AddObject(model);
+                    db.mConstant.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("HtmlPage", model);
+                    db.AttachTo("mConstant", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 model.LanguageID = CurrentLanguage.ID; ;
@@ -54,8 +53,8 @@ namespace NationalIT.Controllers
             var db = DB.Entities;
             try
             {
-                var obj = db.HtmlPage.FirstOrDefault(m => m.ID == id);
-                db.HtmlPage.DeleteObject(obj);
+                var obj = db.mConstant.FirstOrDefault(m => m.ID == id);
+                db.mConstant.DeleteObject(obj);
                 return View("Index");
             }
             catch
@@ -63,13 +62,12 @@ namespace NationalIT.Controllers
                 return RedirectToAction("Index");
             }
         }
-        
-        public ActionResult Details(string id)
+
+        public string Details(string id)
         {
             var db = DB.Entities;
-
-            var obj = db.HtmlPage.FirstOrDefault(m => m.KeyUrl == id);
-            return View(obj);
+            var obj = db.mConstant.FirstOrDefault(m => m.KeyUrl == id && CurrentLanguage.ID == m.LanguageID);
+            return obj == null ? id : obj.Content;
         }
     }
 }

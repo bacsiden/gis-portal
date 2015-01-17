@@ -37,22 +37,20 @@
                             <li><a href="#">Contact2 sdf</a></li>
                         </ul>
                     </li>*@
-                    @Html.Raw(new NationalIT.BaseController().BuildTopMenu(lang))
-                    @Html.Raw(new NationalIT.BaseController().BuildLanguage(lang))
+                    @Html.Raw(new NationalIT.Controllers.BaseController().BuildTopMenu(lang))
+                    @Html.Raw(new NationalIT.Controllers.BaseController().BuildLanguage(lang))
                 </ul>
             </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
     </nav>
     <!-- /.navbar -->
     <div id="main-content">
-     
-            @RenderBody()
-   
+        @RenderBody()
         <hr>
-        <footer>
-            <p>&copy; Company 2014</p>
-        </footer>
     </div>
+    <footer>
+            @Html.Action("Details", "Constant", new { id = "footer" })
+    </footer>
     <!--/.container-->
     <script src="/ContentFront/js/bootstrap.min.js"></script>
     <script src="/ContentFront/js/Site.js"></script>

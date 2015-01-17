@@ -12,6 +12,11 @@ namespace NationalIT
 {
     public class Common
     {
+        public static string RouteData(string key)
+        {
+            var obj=  HttpContext.Current.Request.RequestContext.RouteData.Values[key];
+            return obj == null ? null : obj.ToString();
+        }
         private static readonly string[] VietnameseSigns = new string[]
         {
                         "aAeEoOuUiIdDyY",                        
