@@ -12,7 +12,7 @@ using NationalIT.Controllers;
 using System.Data.SqlClient;
 using System.Xml.Linq;
 
-namespace NationalIT
+namespace NationalIT.Controllers
 {
     public class BaseController : Controller
     {
@@ -20,7 +20,7 @@ namespace NationalIT
         {
             get
             {
-                var culture = Url.RequestContext.RouteData.Values["site_language"];
+                var culture = Common.RouteData("site_language");
 
                 mLanguage lang = null;
 

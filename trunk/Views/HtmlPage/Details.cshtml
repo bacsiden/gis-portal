@@ -1,13 +1,13 @@
 ﻿@model NationalIT.HtmlPage
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Details";
+    ViewBag.Title = NationalIT.DB.Entities.Menu.FirstOrDefault(m => m.Url != null && m.Url.ToLower().Contains(Model.KeyUrl.ToLower())).Title;
 }
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-8">
-                <div class="panel-details">
+                <div class="panel-details" style="padding: 17px;">
                     @Html.Raw(Model.Content)
                 </div>
             </div>

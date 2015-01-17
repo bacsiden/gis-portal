@@ -265,6 +265,38 @@ namespace NationalIT
             }
         }
         private ObjectSet<Post> _Post;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<mConstant> mConstant
+        {
+            get
+            {
+                if ((_mConstant == null))
+                {
+                    _mConstant = base.CreateObjectSet<mConstant>("mConstant");
+                }
+                return _mConstant;
+            }
+        }
+        private ObjectSet<mConstant> _mConstant;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PostInCate> PostInCate
+        {
+            get
+            {
+                if ((_PostInCate == null))
+                {
+                    _PostInCate = base.CreateObjectSet<PostInCate>("PostInCate");
+                }
+                return _PostInCate;
+            }
+        }
+        private ObjectSet<PostInCate> _PostInCate;
 
         #endregion
 
@@ -364,6 +396,22 @@ namespace NationalIT
         public void AddToPost(Post post)
         {
             base.AddObject("Post", post);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the mConstant EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTomConstant(mConstant mConstant)
+        {
+            base.AddObject("mConstant", mConstant);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PostInCate EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPostInCate(PostInCate postInCate)
+        {
+            base.AddObject("PostInCate", postInCate);
         }
 
         #endregion
@@ -922,6 +970,139 @@ namespace NationalIT
         private global::System.Boolean _Multiline;
         partial void OnMultilineChanging(global::System.Boolean value);
         partial void OnMultilineChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="mConstant")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class mConstant : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new mConstant object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="keyUrl">Initial value of the KeyUrl property.</param>
+        /// <param name="languageID">Initial value of the LanguageID property.</param>
+        public static mConstant CreatemConstant(global::System.Int32 id, global::System.String keyUrl, global::System.Int32 languageID)
+        {
+            mConstant mConstant = new mConstant();
+            mConstant.ID = id;
+            mConstant.KeyUrl = keyUrl;
+            mConstant.LanguageID = languageID;
+            return mConstant;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String KeyUrl
+        {
+            get
+            {
+                return _KeyUrl;
+            }
+            set
+            {
+                OnKeyUrlChanging(value);
+                ReportPropertyChanging("KeyUrl");
+                _KeyUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("KeyUrl");
+                OnKeyUrlChanged();
+            }
+        }
+        private global::System.String _KeyUrl;
+        partial void OnKeyUrlChanging(global::System.String value);
+        partial void OnKeyUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Content
+        {
+            get
+            {
+                return _Content;
+            }
+            set
+            {
+                OnContentChanging(value);
+                ReportPropertyChanging("Content");
+                _Content = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Content");
+                OnContentChanged();
+            }
+        }
+        private global::System.String _Content;
+        partial void OnContentChanging(global::System.String value);
+        partial void OnContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LanguageID
+        {
+            get
+            {
+                return _LanguageID;
+            }
+            set
+            {
+                OnLanguageIDChanging(value);
+                ReportPropertyChanging("LanguageID");
+                _LanguageID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LanguageID");
+                OnLanguageIDChanged();
+            }
+        }
+        private global::System.Int32 _LanguageID;
+        partial void OnLanguageIDChanging(global::System.Int32 value);
+        partial void OnLanguageIDChanged();
 
         #endregion
 
@@ -2742,6 +2923,115 @@ namespace NationalIT
         private global::System.String _Summary;
         partial void OnSummaryChanging(global::System.String value);
         partial void OnSummaryChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="PostInCate")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PostInCate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PostInCate object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="postID">Initial value of the PostID property.</param>
+        /// <param name="cateID">Initial value of the CateID property.</param>
+        public static PostInCate CreatePostInCate(global::System.Int32 id, global::System.Int32 postID, global::System.Int32 cateID)
+        {
+            PostInCate postInCate = new PostInCate();
+            postInCate.ID = id;
+            postInCate.PostID = postID;
+            postInCate.CateID = cateID;
+            return postInCate;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PostID
+        {
+            get
+            {
+                return _PostID;
+            }
+            set
+            {
+                OnPostIDChanging(value);
+                ReportPropertyChanging("PostID");
+                _PostID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostID");
+                OnPostIDChanged();
+            }
+        }
+        private global::System.Int32 _PostID;
+        partial void OnPostIDChanging(global::System.Int32 value);
+        partial void OnPostIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CateID
+        {
+            get
+            {
+                return _CateID;
+            }
+            set
+            {
+                OnCateIDChanging(value);
+                ReportPropertyChanging("CateID");
+                _CateID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CateID");
+                OnCateIDChanged();
+            }
+        }
+        private global::System.Int32 _CateID;
+        partial void OnCateIDChanging(global::System.Int32 value);
+        partial void OnCateIDChanged();
 
         #endregion
 

@@ -74,6 +74,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CMS\ConstantController.cs" />
     <Compile Include="Controllers\CMS\LanguageController.cs" />
     <Compile Include="Model1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -109,6 +110,10 @@
   <ItemGroup>
     <Content Include="App_Data\config.xml" />
     <Content Include="App_Data\Data.xml" />
+    <Content Include="App_Data\gis-portal.mdf" />
+    <Content Include="App_Data\gis-portal_log.LDF">
+      <DependentUpon>gis-portal.mdf</DependentUpon>
+    </Content>
     <Content Include="ContentFront\css\bootstrap.min.css" />
     <Content Include="ContentFront\css\dashboard.css" />
     <Content Include="ContentFront\css\Site.css" />
@@ -632,6 +637,8 @@
     </EntityDeploy>
     <Content Include="Views\Post\Channel.cshtml" />
     <Content Include="Views\Shared\404.cshtml" />
+    <Content Include="Views\Constant\Index.cshtml" />
+    <Content Include="Views\Constant\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />

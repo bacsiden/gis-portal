@@ -66,10 +66,10 @@
                                         <hr />
                                         <div class="row">
                                             <div class="col-md-4" style="padding-right: 0;">
-                                                <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news1.ID, news1.Title) })" class="newsHeight" style="height:150px">
-                                                    <img src="@(@news1.ImageUrl))" alt="..." style="" class="col-md-12 img-thumbnail">
+                                                <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news1.ID, news1.Title) })" class="newsHeight">
+                                                    <img src="@(@news1.ImageUrl)" alt="..." style="" class="col-md-12 img-thumbnail">
                                                 </a>
-                                                <div class="col-md-12" style="height: 65px">
+                                                <div class="col-md-12" style="text-align: justify;">
                                                     <h5>
                                                         <a href="@Url.Action("Details", "Post", new { id = Common.CreateURLParam(news1.ID, news1.Title) })">
                                                             @news1.Title

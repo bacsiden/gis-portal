@@ -4,12 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Cate" EntityType="Model.Store.Cate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Document" EntityType="Model.Store.Document" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HtmlPage" EntityType="Model.Store.HtmlPage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mConfig" EntityType="Model.Store.mConfig" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mConstant" EntityType="Model.Store.mConstant" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Menu" EntityType="Model.Store.Menu" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mFunction" EntityType="Model.Store.mFunction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mFunctionInRole" EntityType="Model.Store.mFunctionInRole" store:Type="Tables" Schema="dbo" />
@@ -22,6 +23,7 @@
           <EntitySet Name="mUser" EntityType="Model.Store.mUser" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="mUserInGroup" EntityType="Model.Store.mUserInGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Post" EntityType="Model.Store.Post" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PostInCate" EntityType="Model.Store.PostInCate" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_FunctionInRole_Function" Association="Model.Store.FK_FunctionInRole_Function">
             <End Role="mFunction" EntitySet="mFunction" />
             <End Role="mFunctionInRole" EntitySet="mFunctionInRole" />
@@ -91,6 +93,15 @@
           <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Title" Type="nvarchar" MaxLength="500" />
           <Property Name="Multiline" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mConstant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KeyUrl" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LanguageID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -219,6 +230,14 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="Summary" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="PostInCate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="CateID" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_FunctionInRole_Function">
           <End Role="mFunction" Type="Model.Store.mFunction" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -331,8 +350,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -365,6 +383,8 @@
             <End Role="mGroup" EntitySet="mGroup" />
             <End Role="mUser" EntitySet="mUser" />
           </AssociationSet>
+          <EntitySet Name="mConstant" EntityType="Model.mConstant" />
+          <EntitySet Name="PostInCate" EntityType="Model.PostInCate" />
         </EntityContainer>
         <EntityType Name="Cate">
           <Key>
@@ -522,6 +542,23 @@
           <End Role="mGroup" Type="Model.mGroup" Multiplicity="*" />
           <End Role="mUser" Type="Model.mUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="mConstant">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="KeyUrl" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Content" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LanguageID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostInCate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PostID" Nullable="false" />
+          <Property Type="Int32" Name="CateID" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -704,6 +741,25 @@
               <ScalarProperty Name="ID" ColumnName="UserID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="mConstant">
+            <EntityTypeMapping TypeName="Model.mConstant">
+              <MappingFragment StoreEntitySet="mConstant">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="KeyUrl" ColumnName="KeyUrl" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostInCate">
+            <EntityTypeMapping TypeName="Model.PostInCate">
+              <MappingFragment StoreEntitySet="PostInCate">
+                <ScalarProperty Name="CateID" ColumnName="CateID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -718,7 +774,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -763,6 +819,8 @@
           <ConnectorPoint PointX="2.8125" PointY="9.1607161458333373" />
           <ConnectorPoint PointX="3" PointY="9.1607161458333373" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Model.mConstant" Width="1.5" PointX="10.375" PointY="5.75" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="Model.PostInCate" Width="1.5" PointX="10.375" PointY="8.75" Height="1.4279589843750031" />
       </Diagram>
     </Diagrams>
   </Designer>
